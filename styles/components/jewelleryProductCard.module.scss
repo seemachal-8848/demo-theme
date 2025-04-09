@@ -1,0 +1,151 @@
+.categories_title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tabcardContainer {
+  border: none;
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.tabimageContainer {
+  position: relative;
+  width: 100% !important;
+  overflow: hidden;
+}
+
+.tabProductTitle {
+  font-size: 16px;
+}
+
+.tabProductImage {
+  width: 100% !important;
+  object-fit: cover !important;
+  transition:
+    transform 0.8s ease,
+    filter 0.8s ease;
+  /* Smooth transition for zoom and shade */
+}
+
+.tabimageContainer:hover .tabProductImage {
+  transform: scale(1.08);
+  /* Zoom in slightly */
+  filter: brightness(0.8);
+  /* Apply a grayish shade */
+}
+
+.tabProductPrice {
+  margin-right: 15px;
+  font-size: 14px;
+  color: #898888;
+  font-weight: 400;
+  font-family: 'Poppins';
+}
+
+.tabProductmrpPrice {
+  color: #898888;
+  text-decoration: line-through;
+  font-size: 12px;
+}
+
+.tabProductVariantImage {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 0;
+  text-align: center;
+  margin-right: 8px;
+  padding: 2px;
+  padding-left: 0;
+  cursor: pointer;
+}
+
+.borderInactive {
+  border: 1px solid #ffffff77;
+}
+
+.borderActive {
+  border: 1px solid black;
+}
+
+.tabimageContainer:hover .button_container {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(40%);
+  transition: 0.5s ease 0s;
+}
+
+.button_container {
+  position: absolute;
+  transition: 0.5s ease 0s;
+  opacity: 0;
+  visibility: hidden;
+  text-align: center;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  right: 0;
+  top: 80%;
+  margin: auto;
+  transform: translateY(-100%);
+}
+
+.icon_btn_container {
+  background: #fff;
+  color: #242424;
+  font-size: 20px;
+  padding: 4px 9px;
+  cursor: pointer;
+}
+
+.icon_btn_container:hover {
+  background-color: #242424;
+  color: #fff;
+}
+
+.featuredCollectionTitle:before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 30px;
+  height: 2px;
+  background: var(--cl-heading);
+}
+
+.product_data {
+  position: absolute;
+}
+
+@media only screen and (max-width: 576px) {
+  .tabProductImage {
+    height: 18rem !important;
+  }
+}
+
+@media only screen and (min-width: 576px) {
+  .tabProductImage {
+    height: 22rem;
+  }
+}
+
+@media only screen and (min-width: 1700px) {
+  .tabProductImage {
+    height: 30rem;
+  }
+}
+
+@media only screen and (min-width: 2500px) {
+  .tabProductImage {
+    height: 40rem;
+  }
+}
+
+@media only screen and (min-width: 4000px) {
+  .tabProductImage {
+    height: 45rem;
+  }
+}

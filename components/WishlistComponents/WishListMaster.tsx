@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import useAddToCartHook from '../../hooks/CartPageHook/useAddToCart';
 import useWishlist from '../../hooks/WishlistHooks/useWishlistHook';
 import { selectCart } from '../../store/slices/cart-slices/cart-local-slice';
+import ProductCardVariantColour from '../../cards/ProductCardVariantColour';
 const NoDataFound = dynamic(() => import('../NoRecordFound'));
 const ProductCard = dynamic(() => import('../../cards/ProductCard'));
 const ProductCardSkeleton = dynamic(() => import('../../cards/ProductCardSkeleton'));
@@ -28,15 +29,26 @@ const WishlistMaster = () => {
         <div className=" row">
           {wishlistData?.length > 0 &&
             wishlistData?.map((item: any, index: number) => (
-              <div key={index} className="col-sm-6 col-lg-4 col-xl-3 col-xxl-3 text-center mb-4 px-3">
-                <ProductCard
-                  data={item}
-                  wishlistData={wishlistData}
-                  btnAction={'Add'}
-                  cartData={cartData}
-                  addToCartItem={addToCartItem}
-                  getPartyName={getPartyName}
-                />
+              // <div key={index} className="col-sm-6 col-lg-4 col-xl-3 col-xxl-3 text-center mb-4 px-3">
+              //   <ProductCard
+              //     data={item}
+              //     wishlistData={wishlistData}
+              //     btnAction={'Add'}
+              //     cartData={cartData}
+              //     addToCartItem={addToCartItem}
+              //     getPartyName={getPartyName}
+              //   />
+              // </div>
+              <div className="col-sm-6 col-lg-4 col-xl-3 col-xxl-3 mb-4 px-3">
+                <div className={'h-100'}>
+                  <ProductCardVariantColour
+                    data={item}
+                    cartData={cartData}
+                    addToCartItem={addToCartItem}
+                    getPartyName={getPartyName}
+                    wishlistData={wishlistData}
+                  />
+                </div>
               </div>
             ))}
         </div>
@@ -47,9 +59,12 @@ const WishlistMaster = () => {
     }
   };
   return (
-    <div className="container">
-      <h2 className="theme-blue text-center my-3">My Wishlist</h2>
-      {handleDataRendering()}
+    <div>
+      <div className="text-center py-4 bg-blue text-light mb-5">
+        <h4 className="m-0">Wishlist</h4>
+        <p className="m-0">View your wishlist products</p>
+      </div>
+      <div className="container">{handleDataRendering()}</div>
     </div>
   );
 };

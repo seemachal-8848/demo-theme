@@ -1,0 +1,192 @@
+.bannerTitle {
+  font-size: 55px;
+  font-weight: 600;
+  line-height: 55px;
+  color: #222222;
+  letter-spacing: 0px;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  text-rendering: optimizeLegibility;
+}
+
+.banner_btn {
+  background-color: #222222;
+  border-radius: 0;
+  border: none;
+  font-weight: 700;
+  padding: 10px 31px;
+  font-size: 14px;
+}
+.banner_btn {
+  position: relative;
+  overflow: hidden;
+}
+
+.banner_btn:hover {
+  background-color: #56cfe1;
+  color: white;
+}
+
+.banner_p_tag {
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  color: #222222;
+  text-transform: uppercase;
+  margin-bottom: 0px;
+  letter-spacing: 1px;
+}
+
+.catagoryImg {
+  width: 100%;
+  max-height: 1500px;
+  object-fit: cover;
+  object-position: 45% 20%;
+}
+
+.corousel_caption_left {
+  padding-left: 20%;
+  top: 30% !important;
+  color: white;
+}
+
+.corousel_caption_center {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  text-align: center;
+  top: 0% !important;
+  padding-left: 0%;
+}
+
+.banner_content_container {
+  padding-top: 12%;
+  padding-left: 9%;
+  font-family: 'Poppins';
+}
+
+.banner_p_tag_left {
+  font-size: 20px !important;
+  font-weight: 500;
+  color: white;
+  line-height: 26px;
+  letter-spacing: 1px;
+  margin-bottom: 0px;
+}
+
+.bannerTitle_left {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 70px;
+  letter-spacing: 0px;
+  margin-bottom: 10px;
+  white-space: nowrap;
+}
+
+.overlay {
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh !important;
+  background: rgba(0, 0, 0, 0.54);
+  z-index: 1;
+  pointer-events: none;
+}
+
+@media only screen and (max-width: 3000px) {
+  .catagoryImg {
+    min-height: 1000px !important;
+    object-fit: cover;
+    object-position: 45% 20%;
+  }
+}
+
+@media only screen and (max-width: 1600px) {
+  .catagoryImg {
+    min-height: 700px !important;
+    object-fit: cover;
+    object-position: 45% 20%;
+  }
+}
+
+// Tablet screen
+@media only screen and (max-width: 1024px) {
+  .bannerTitle {
+    font-size: 2.5rem;
+  }
+  .catagoryImg {
+    min-height: 550px;
+    object-fit: cover;
+    object-position: 45% 20%;
+  }
+  .catagory_item_container {
+    height: 500px !important;
+  }
+  .catagoryImg {
+    min-height: 500px !important;
+  }
+  .carousel_caption_container {
+    padding-left: 0% !important;
+    top: 30% !important;
+  }
+  .banner_title_wrapper {
+    line-height: 48px;
+  }
+}
+
+// Mobile Screen
+@media only screen and (max-width: 600px) {
+  .catagoryImg {
+    min-height: 300px;
+    object-fit: cover;
+    object-position: 45% 20%;
+  }
+
+  .bannerTitle {
+    font-size: 20px;
+    white-space: nowrap;
+  }
+
+  .banner_btn {
+    padding: 9px 18px;
+    font-size: 12px;
+  }
+
+  .banner_p_tag {
+    font-size: 12px !important;
+  }
+
+  .corousel_caption_left {
+    padding-left: 2% !important;
+    white-space: wrap !important;
+    width: 100%;
+  }
+
+  .catagoryImg {
+    height: 100% !important;
+  }
+
+  .bannerTitle_left {
+    font-size: 35px !important;
+  }
+
+  .bannerTitle_left {
+    white-space: wrap !important;
+    line-height: normal !important;
+  }
+
+  .catagory_item_container {
+    height: 250px !important;
+  }
+  .catagoryImg {
+    min-height: 250px !important;
+  }
+  .carousel_caption_container {
+    padding-left: 0% !important;
+    top: 30% !important;
+  }
+  .banner_title_wrapper {
+    line-height: 22px;
+  }
+}

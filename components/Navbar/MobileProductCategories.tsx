@@ -43,15 +43,12 @@ const MobileProductCategories = ({
           </button>
         </div>
         <div className="nav-sidebar">
-          <Accordion defaultActiveKey="0">
+          <Accordion>
             {navbarData?.length > 0 &&
               navbarData?.map((itemL1: any, indexL1: number) => (
                 <Accordion.Item eventKey={`${indexL1}`} className="border-0" key={indexL1}>
-                  <Accordion.Header className=" border-0 fs-16 ">
+                  <Accordion.Header className=" border-bottom fs-16 ">
                     <div>
-                      <span className="pe-2">
-                        <FiCommand />
-                      </span>
                       <b>{itemL1?.label}</b>
                     </div>
                   </Accordion.Header>
@@ -63,8 +60,8 @@ const MobileProductCategories = ({
                           <div className="nav-sidebar2" key={indexL2}>
                             <Accordion>
                               <Accordion.Item eventKey={`${indexL2}`} className="border-0">
-                                <Accordion.Header>
-                                  <span className="px-3">{itemL2?.label}</span>
+                                <Accordion.Header className="border-bottom">
+                                  <span className="px-3 ">{itemL2?.label}</span>
                                 </Accordion.Header>
                                 <Accordion.Body>
                                   {itemL2?.values?.length > 0 &&
@@ -75,7 +72,7 @@ const MobileProductCategories = ({
                                         className="text-decoration-none text-dark"
                                         onClick={() => setIsSidebarOpen(false)}
                                       >
-                                        <p className="px-4 fs-14 mb-2">{itemL3?.label}</p>
+                                        <p className="px-3  py-3  m-0 border-bottom">{itemL3?.label}</p>
                                       </Link>
                                     ))}
                                 </Accordion.Body>

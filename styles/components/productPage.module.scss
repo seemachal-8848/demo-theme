@@ -1,0 +1,134 @@
+.prodcut_title {
+  margin-bottom: 10px !important;
+  font-size: 16px;
+  font-weight: 600;
+  color: #222222;
+  text-transform: none;
+  line-height: 1;
+}
+.price {
+  font-size: 22px;
+  font-weight: 400;
+  color: #696969;
+}
+.mrpPrice {
+  font-size: 22px;
+  font-weight: 400;
+  color: #696969;
+  text-decoration: line-through;
+}
+.rating {
+  font-size: 12px;
+}
+.attribute_name {
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 0.65em 0 0.5em;
+}
+.variant_btn {
+  border-color: #333;
+  color: #333;
+  background-color: #ffffff;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  display: inline-block;
+  padding: 6px 16px;
+  text-align: center;
+  border-radius: 3px;
+  vertical-align: middle;
+  cursor: pointer;
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.15s ease,
+    box-shadow 0.25s ease,
+    opacity 0.25s ease;
+}
+.variant_btn :hover {
+  border: 1px solid #000;
+}
+.variant_btn_active {
+  border-color: #333;
+  background: #000000;
+  color: #ffffff;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  display: inline-block;
+  padding: 6px 16px;
+  text-align: center;
+  border-radius: 3px;
+  vertical-align: middle;
+  cursor: pointer;
+  transition:
+    color 0.25s ease,
+    background-color 0.25s ease,
+    border-color 0.15s ease,
+    box-shadow 0.25s ease,
+    opacity 0.25s ease;
+}
+.colour_variant {
+  width: 20px;
+  height: 20px;
+  margin: 0;
+}
+@keyframes moveLeftRight {
+  0% {
+    transform: translate(0px);
+  }
+  75% {
+    transform: translate(0px);
+  }
+  80% {
+    transform: translate(5px);
+  }
+  85% {
+    transform: translate(0px);
+  }
+  90% {
+    transform: translateX(5px);
+  }
+  95% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translate(0px);
+  }
+}
+.addToCartBtn {
+  color: #ffffff;
+  background: #000;
+  border: 0;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 600;
+  min-height: 40px;
+  padding: 5px 25px;
+  cursor: pointer;
+  order: 4;
+  width: 100%;
+  text-transform: uppercase;
+  transform: 0.3s;
+  animation: moveLeftRight 5s infinite ease-in-out;
+}
+.addToCartBtn:hover {
+  background-color: #222222;
+}
+.iconButton {
+  background: #fff;
+  border: 1px solid #000000da;
+  border-radius: 50%;
+  padding: 7px 9px;
+}
+.icon {
+  font-size: 20px;
+  color: #222222;
+}
+.iconButton:hover {
+  color: #fff;
+  background: #222222;
+
+  .icon {
+    color: #fff;
+  }
+}

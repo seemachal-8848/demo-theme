@@ -89,3 +89,27 @@
 .shipping-method-margin {
   padding-top: 20px !important;
 }
+.summary_btn {
+  background-color: #fff;
+  color: #56cfe1;
+  border: 1px solid #56cfe1;
+}
+.summary_btn:hover {
+  background-color: #56cfe1;
+  color: #fff;
+}
+.place_order_btn {
+  background-color: #56cfe1;
+  color: #fff;
+  border: 1px solid #56cfe1;
+}
+.place_order_btn:disabled {
+  background-color: #057586e1;
+  color: #fff;
+  border: 1px solid #057586e1;
+}
+.place_order_btn:hover {
+  background-color: #53bfcf;
+  color: #fff;
+  border: 1px solid #53bfcf;
+}

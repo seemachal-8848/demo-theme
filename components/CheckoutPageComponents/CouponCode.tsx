@@ -1,3 +1,4 @@
+import styles from '../../styles/components/checkout.module.scss';
 function CouponCode({ couponCode, handleChangeCouponCode, isCouponApplied, handleApplyCouponCode, handleRemoveCouponCode }: any) {
   return (
     <div>
@@ -18,7 +19,7 @@ function CouponCode({ couponCode, handleChangeCouponCode, isCouponApplied, handl
             Cancel
           </button>
         ) : (
-          <button className="btn btn-outline-primary" type="button" id="apply-coupon" onClick={handleApplyCouponCode}>
+          <button className={`btn  ${styles.summary_btn}`} type="button" id="apply-coupon" onClick={handleApplyCouponCode}>
             Apply
           </button>
         )}

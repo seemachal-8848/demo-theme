@@ -10,6 +10,7 @@ import useFetchCartItems from '../../hooks/CartPageHook/useFetchCartItems';
 import { LiaRupeeSignSolid } from 'react-icons/lia';
 import StoreCredit from './StoreCredit';
 import CouponCode from './CouponCode';
+import styles from '../../styles/components/checkout.module.scss';
 
 const CheckOutAddress = ({
   shippingAddress,
@@ -237,8 +238,8 @@ const CheckOutAddress = ({
                 </div>
               </Form>
               <Button
-                variant="primary"
-                className="w-100 "
+                // variant="primary"
+                className={` w-100 ${styles.place_order_btn}`}
                 disabled={!conditionCheck}
                 onClick={() => handlePlaceOrder(billingAddressId, addressId, showBillingAddress, setPlacePrderLoader)}
               >
@@ -254,7 +255,7 @@ const CheckOutAddress = ({
           <OrderSummery cartListingItems={cartListingItems} />
         </div>
       ) : (
-        <h5 className='col-12 text-center mt-3 w-100'>Please add products to place your order.</h5>
+        <h5 className="col-12 text-center mt-3 w-100">Please add products to place your order.</h5>
       )}
     </div>
   );

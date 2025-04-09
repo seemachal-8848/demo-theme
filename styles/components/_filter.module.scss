@@ -31,8 +31,11 @@
 .web-filter .accordion-item {
   border: none;
 }
-.web-filter.accordion-body {
-  padding: 0.5rem 0;
+.web-filter .accordion-body {
+  padding: 8px 12px !important;
+}
+.web-filter .accordion-button {
+  padding: 8px 12px !important;
 }
 .web-filter.accordion-button:focus {
   z-index: 3;
@@ -132,4 +135,72 @@
 .sticky_filter_btn {
   position: fixed;
   bottom: 0;
+}
+.web-filter .horizontal-line {
+  content: '';
+  vertical-align: middle;
+  width: 60px;
+  height: 2px;
+  background: #222222;
+  margin-bottom: 8px;
+}
+
+.filter-color .colorContainer {
+  cursor: pointer;
+}
+.filter-color .colorContainer:hover {
+  .tabProductColor {
+    border: 1px solid #ffffff77;
+  }
+  .colorInactive {
+    color: #56cfe1;
+  }
+}
+.filter-color .tabProductColor {
+  display: inline-block;
+  width: 25px !important;
+  height: 25px !important;
+  border-radius: 50%;
+  font-size: 0;
+  text-align: center;
+  margin-right: 8px;
+  padding: 2px;
+}
+.filter-color .borderInactive {
+  border: 1px solid #ffffff77;
+}
+.filter-color .borderActive {
+  border: 1px solid black;
+}
+.filter-color .colorInactive {
+  color: #222222;
+}
+.filter-color .colorActive {
+  color: #56cfe1;
+}
+.web-filter {
+  .filter-scrollable {
+    max-height: 170px; /* Set the maximum height */
+    overflow-y: auto; /* Enable vertical scrolling */
+    padding-right: 10px; /* Optional: add padding for better scrollbar visibility */
+  }
+
+  /* Scrollbar Styling */
+  .filter-scrollable::-webkit-scrollbar {
+    width: 6px; /* Set the width of the scrollbar */
+  }
+
+  .filter-scrollable::-webkit-scrollbar-thumb {
+    background-color: #ccc; /* Color of the scrollbar thumb */
+    border-radius: 4px; /* Make the scrollbar thumb rounded */
+  }
+
+  .filter-scrollable::-webkit-scrollbar-thumb:hover {
+    background-color: #aaa; /* Color when hovered */
+  }
+
+  .filter-scrollable::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Background color of the scrollbar track */
+    border-radius: 4px; /* Make the track rounded */
+  }
 }

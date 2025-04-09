@@ -1,6 +1,6 @@
 import { Component, ErrorInfo, ReactNode } from 'react';
 import Image from 'next/image';
-import image from '../public/assets/images/error-icon.png';
+import image from '../public/assets/images/Error.svg';
 import ErrorBoundaryStyles from '../styles/components/errorboundary.module.scss';
 interface ErrorBoundaryProps {
   children: ReactNode;
@@ -34,20 +34,20 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   render() {
     if (this.state.hasError) {
       return (
-        <div id={`${ErrorBoundaryStyles.error_page}`}>
-          <div className={`${ErrorBoundaryStyles.error_content}`}>
-            <div className="p-3" style={{ fontSize: '40px' }}>
-              <Image src={image} width={250} height={250} alt="Error Image" />
+        <div className={` ${ErrorBoundaryStyles.error_main_container} ${ErrorBoundaryStyles.error_page}`}>
+          <div className={`${ErrorBoundaryStyles.error_content}  d-flex justify-content-center align-items-center`}>
+            <div className="" style={{ fontSize: '40px' }}>
+              <Image src={image} width={107} height={96} alt="Error Image" />
             </div>
-            <h4 data-text="Oops, Something Went Wrong!">Oops, Something Went Wrong!</h4>
-            <p>
-              Sorry, Our engineers are currently fixing something.
-              <br />
-              We expect them to be done soon.
+            <h4 className="mb-2 mt-4 d-flex justify-content-center text-center">Oops, Something Went Wrong!</h4>
+            <p className="grey text-center">
+              {/* Sorry, Our engineers are currently fixing something. */}
+              We're sorry to encounter an unexpected error, please try again.
             </p>
-            <div className={`${ErrorBoundaryStyles.error_btns}`} onClick={() => location.reload()}>
-              <a>Refresh Page</a>
-            </div>
+
+            <button className={`${ErrorBoundaryStyles.error_button} mt-4`} onClick={() => location.reload()}>
+              <div className={`${ErrorBoundaryStyles.error_button_text} font-poppins`}>Refresh Page</div>
+            </button>
           </div>
         </div>
       );

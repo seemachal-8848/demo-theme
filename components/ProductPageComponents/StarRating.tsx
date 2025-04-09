@@ -8,11 +8,11 @@ const StarRating = (props: any) => {
   const emptyStars: any = 5 - fullStars;
   const renderStar: any = (type: string) => {
     if (type === 'full') {
-      return <MdOutlineStar style={{ color: '#666' }} />;
+      return <MdOutlineStar style={{ color: '#f3b409', fontSize: '25px' }} />;
     } else if (type === 'half') {
-      return <MdOutlineStarHalf style={{ color: '#666' }} />;
+      return <MdOutlineStarHalf style={{ color: '#f3b409', fontSize: '25px' }} />;
     } else {
-      return <MdOutlineStarBorder style={{ color: '#666' }} />;
+      return <MdOutlineStarBorder style={{ color: '#f3b409', fontSize: '25px' }} />;
     }
   };
   return (

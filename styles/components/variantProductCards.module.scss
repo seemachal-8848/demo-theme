@@ -1,0 +1,153 @@
+.imageContainer {
+  width: 320px;
+  height: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.categories_title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.tabcardContainer {
+  border: none;
+  display: flex;
+  align-items: center;
+}
+.tabimageContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  object-fit: cover;
+}
+
+.tabProductPrice {
+  margin-right: 15px;
+  font-size: 17px;
+}
+.tabProductmrpPrice {
+  color: #898888;
+  text-decoration: line-through;
+}
+.tabProductColor {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  font-size: 0;
+  text-align: center;
+  margin-right: 8px;
+  padding: 2px;
+  cursor: pointer;
+}
+.borderInactive {
+  border: 1px solid #ffffff77;
+}
+.borderActive {
+  border: 1px solid black;
+}
+.tabcardContainer:hover .varients_btns {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(40%);
+  transition: 0.5s ease 0s;
+}
+.tabimageContainer:hover .wishlistIcon {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(40%);
+  transition: 0.5s ease 0s;
+}
+.wishlistIcon {
+  top: 0;
+  left: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  transition: 0.5s ease 0s;
+  opacity: 0;
+  visibility: hidden;
+  font-size: 20px;
+}
+
+.varients_btns {
+  position: absolute;
+  transition: 0.5s ease 0s;
+  opacity: 0;
+  visibility: hidden;
+  text-align: center;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  right: 0;
+  top: 25%;
+  margin: auto;
+  flex-direction: column;
+  transform: translateY(-100%);
+}
+.quickShop_btn {
+  height: 40px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #222222;
+  text-decoration: none;
+  background-color: #fff;
+  line-height: 40px;
+  min-width: 136px;
+  padding: 0 15px;
+  border-radius: 40px;
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+.quickShop_btn:hover .quickShop {
+  transition: 0.5s ease 0s;
+  opacity: 0;
+  display: none;
+}
+.quickShop_btn:hover .quickIcon {
+  display: block;
+  transition: 0.5s ease 0s;
+  opacity: 1;
+  visibility: visible;
+}
+.quickIcon {
+  transition: 0.5s ease 0s;
+  opacity: 0;
+  visibility: hidden;
+}
+.quickShop_btn:hover {
+  transition: 0.5s ease 0s;
+  background-color: #222222;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.featuredCollectionTitle:before {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 30px;
+  height: 2px;
+  background: var(--cl-heading);
+}
+.quickIcon {
+  display: none;
+}
+
+.tabProductTitle {
+  line-height: 20px;
+  margin-top: 15px;
+  margin-bottom: 0 !important;
+}
+.tabProductPrice {
+  margin-top: 0 !important;
+}

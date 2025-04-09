@@ -7,8 +7,8 @@ import { selectWishlist } from '../../../../store/slices/wishlist-slices/wishlis
 import TopArrowCarouselData from './FeaturedCollectionInspiration3CarouselData';
 import TopArrowCarouselLoading from './FeaturedCollectionInspiration3CarouselLoading';
 
-const TopArrowCarouselMaster = () => {
-  const { allTagsData, isLoading, errorMessage } = useDisplayTagHooks();
+const TopArrowCarouselMaster = ({ componentProperties }: any) => {
+  const { allTagsData, isLoading, errorMessage } = useDisplayTagHooks(componentProperties);
   const { addToCartItem, getPartyName } = useAddToCartHook();
   const wishlistData = useSelector(selectWishlist).items;
 

@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 import type { AppProps } from 'next/app';
-import { Nunito } from 'next/font/google';
+import summitSettings from '../summit-settings.json'; // Import the settings file
+import { createFontImport } from '../utils/fontUtils'; // Helper function to dynamically import fonts
 import dynamic from 'next/dynamic';
 import { Provider } from 'react-redux';
 import { ToastContainer } from 'react-toastify';
@@ -15,11 +16,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-toastify/dist/ReactToastify.css';
 import '../styles/globals.scss';
 
-const nunito = Nunito({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  display: 'swap',
-});
+// Dynamically import font based on settings
+const fontFamily = summitSettings.data.font_family || 'Nunito'; // Default to Nunito
+const dynamicFont = createFontImport(fontFamily); // Import font dynamically
 
 // Specify Google Tracking Code for Google Analytics
 
@@ -30,7 +29,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   }, []);
   return (
-    <div className={nunito.className}>
+    <div className={dynamicFont.className}>
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <ErrorBoundary>

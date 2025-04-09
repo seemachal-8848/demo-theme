@@ -1,0 +1,84 @@
+.showCaseContainerImage {
+  position: relative;
+}
+
+.showCaseContainerButton {
+  bottom: 20px;
+  position: absolute;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.showCase_btn {
+  background-color: #000000;
+  border-radius: 0;
+  border: none;
+  color: #ffff;
+  font-weight: 700;
+  padding: 10px 32px;
+  box-shadow: 1px 1px #0000001a;
+}
+
+.showCase_btn:hover {
+  background-color: #ffffff;
+  color: #222222;
+}
+
+.catagoryImg {
+  object-fit: cover;
+  object-position: center center;
+}
+
+.showcase_image_1 {
+  height: 100%;
+  width: 100%;
+  inset: 0px;
+  object-fit: cover;
+  color: transparent;
+}
+
+.showcase_image_acc {
+  height: 100%;
+  width: 100%;
+  inset: 0px;
+  object-fit: cover;
+  color: transparent;
+}
+.jewellery_personalized_categories_main_container {
+  height: 528px;
+}
+.jewellery_personalized_categories_small_container {
+  height: 252px;
+}
+
+@media only screen and (max-width: 900px) {
+  .jewellery_personalized_categories_main_container {
+    height: 1262px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .showcase_image_1 {
+    position: relative;
+    object-fit: contain;
+  }
+
+  .showcase_image_acc {
+    position: relative;
+    object-fit: fill;
+  }
+
+  .showCaseContainerButton {
+    bottom: 40px;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .jewellery_personalized_categories_main_container {
+    height: 1052px;
+  }
+  .jewellery_personalized_categories_small_container {
+    height: 170px;
+  }
+}

@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import styles from '../../styles/components/productDetail.module.scss';
 import { FaRegCheckCircle, FaWindowClose } from 'react-icons/fa';
 
-function MultipleQuantityInputField  ({ productVariantData, handleMultipleQtyChange, itemList, selectedMultiLangData }: any) {
+function MultipleQuantityInputField({ productVariantData, handleMultipleQtyChange, itemList, selectedMultiLangData }: any) {
   return (
     <div>
       {productVariantData?.variants?.length > 0 &&
@@ -39,6 +39,6 @@ function MultipleQuantityInputField  ({ productVariantData, handleMultipleQtyCha
         ))}
     </div>
   );
-};
+}
 
 export default MultipleQuantityInputField;

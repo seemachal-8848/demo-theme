@@ -1,10 +1,10 @@
 import debounce from 'debounce';
+import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import NoImage from '../../public/assets/images/no_image.png';
 import cartStyles from '../../styles/components/cartlist.module.scss';
-import Link from 'next/link';
 
 function ListViewCard({ cartListingItems, setCartListingItems, addToCartItem, RemoveItemCartAPIFunc, selectedMultiLangData }: any) {
   const router = useRouter();

@@ -1,11 +1,11 @@
 import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import NoImage from '../../public/assets/images/no_image.png';
-import { CONSTANTS } from '../../services/config/app-config';
 import { currency_selector_state } from '../../store/slices/general_slices/multi-currency-slice';
-import Link from 'next/link';
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import { imageLoader } from '../../utils/image_loader';
 
 function OrderCardDetails({ data, selectedMultiLangData }: any) {
   const { query } = useRouter();
@@ -19,9 +19,7 @@ function OrderCardDetails({ data, selectedMultiLangData }: any) {
       }
     }
   }, []);
-  const imageLoader = ({ src, width, quality }: any) => {
-    return `${src}?w=${width}&q=${quality || 75}`;
-  };
+
   return (
     <>
       {data?.order_details?.map((detail: any) => (

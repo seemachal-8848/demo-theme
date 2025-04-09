@@ -1,3 +1,4 @@
+import styles from '../../styles/components/checkout.module.scss';
 function StoreCredit({ storeCredit, handleChangeStoreCredit, handleApplyStoreCredit }: any) {
   return (
     <div>
@@ -12,7 +13,7 @@ function StoreCredit({ storeCredit, handleChangeStoreCredit, handleApplyStoreCre
           value={storeCredit}
           onChange={(e) => handleChangeStoreCredit(e.target.value)}
         />
-        <button className="btn btn-outline-primary" type="button" id="store-credit" onClick={handleApplyStoreCredit}>
+        <button className={`btn  ${styles.summary_btn}`} type="button" id="store-credit" onClick={handleApplyStoreCredit}>
           Apply
         </button>
       </div>

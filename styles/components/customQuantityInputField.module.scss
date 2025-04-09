@@ -1,0 +1,20 @@
+.quantity_input {
+  width: 120px;
+  //   padding: 8px 10px;
+  height: 40px;
+  text-align: center;
+  position: relative;
+  border: 1px solid black;
+}
+.quantity_decrease {
+  position: absolute;
+  z-index: 2;
+  margin-top: 11px;
+  margin-left: 13px;
+}
+.quantity_increase {
+  position: absolute;
+  z-index: 2;
+  margin-top: 11px;
+  margin-left: -29px;
+}

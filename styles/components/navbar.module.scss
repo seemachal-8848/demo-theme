@@ -2,11 +2,16 @@
   background: transparent;
   width: 100%;
   border-bottom: 0.1rem solid #eee;
+  // height: 70px;
 }
 .navbar {
   padding: 0;
+  padding-left: 15px;
+  padding-right: 15px;
 }
-
+.navbar .navbar_wrapper {
+  height: 70px;
+}
 .search_bar {
   width: 60% !important;
   padding-bottom: 1.0625rem;
@@ -25,21 +30,29 @@
   align-items: center;
   cursor: pointer;
   text-decoration: none;
+  width: 22px !important;
 }
 .badge {
   background: #ff0000;
   border-radius: 50% !important;
-  bottom: 35px !important;
-  height: 1.1rem;
+  // bottom: 35px !important;
+  // height: 1.1rem;
   position: absolute;
-  right: 18px !important;
+  // right: 18px !important;
   text-align: center;
-  width: 1.1rem;
-  font-size: 12px;
+  width: 15px;
+  height: 15px;
+  font-size: 10px;
   font-weight: 600;
+  top: -2;
+  left: 0;
+  z-index: 2;
+  line-height: 15px;
+  font-family: poppins;
 }
 .list_inline_margin {
-  margin-top: -2px;
+  // margin-top: -2px;
+  height: 70px;
 }
 .badge_warning[href] {
   background-color: #c67605;
@@ -75,6 +88,27 @@
 .logo {
   flex: 1;
 }
+.list_inline_container {
+  height: 70px;
+}
+// Custom web navbar css
+.list_inline_item_custom {
+  // width: 45px;
+  padding: 8px;
+}
+.list_inline_item_user {
+  height: 70px !important;
+}
+.badge_custom {
+  bottom: 13px !important;
+  // right: -1px !important;
+  // left: 23px !important;
+  left: 13px !important;
+}
+.inlineList {
+  display: flex;
+  align-items: center;
+}
 
 @media (max-width: 1070px) {
   .search_bar {
@@ -106,6 +140,12 @@
     text-transform: uppercase;
     flex: 2;
   }
+  .cart_icon_mob {
+    padding-right: 0.7rem !important;
+  }
+  .navbar {
+    padding: 0;
+  }
 }
 
 .order_list_dropdown a {
@@ -115,4 +155,22 @@
 
 .order_list_items {
   padding: 3px 7px !important;
+}
+
+// Transperant navbar header
+.transperant_navbar {
+  position: fixed;
+  width: 100% !important;
+  top: 0;
+  background: transparent !important;
+  // padding: 15px 0 !important;
+  z-index: +5;
+}
+.scrolled_navbar {
+  position: fixed;
+  width: 100% !important;
+  top: 0;
+  background: white !important;
+  z-index: +5;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }

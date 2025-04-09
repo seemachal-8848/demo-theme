@@ -10,8 +10,8 @@ import ErrorImage from '../../../../public/assets/images/error-icon.png';
 
 type Props = {};
 
-const FeaturedCollectionsInspiration2Master = (props: Props) => {
-  const { allTagsData, fetchDisplayTagsDataFunction, isLoading, errorMessage } = useFeaturedCollections();
+const FeaturedCollectionsInspiration2Master = ({ componentProperties }: any) => {
+  const { allTagsData, fetchDisplayTagsDataFunction, isLoading, errorMessage } = useFeaturedCollections(componentProperties);
   const { addToCartItem, getPartyName } = useAddToCartHook();
   const wishlistData = useSelector(selectWishlist).items;
 

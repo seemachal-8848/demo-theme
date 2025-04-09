@@ -1,37 +1,65 @@
 .no_data_state {
-    width: 100%;
-    margin: 40px auto;
-    background: #ffffff;
-    border-radius: 4px;
-  
-    .no_data_content {
-      padding: 48px;
+  width: 100%;
+  margin: 40px auto;
+  background: #ffffff;
+  border-radius: 4px;
+
+  .no_data_content {
+    padding: 48px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    .no_data_icon {
+      // width: 200px;
+      // height: 200px;
       display: flex;
       align-items: center;
-      flex-direction: column;
-  
-      .no_data_icon {
-        width: 200px;
-        height: 200px;
-        display: flex;
-        align-items: center;
-        border-radius: 200px;
-        justify-content: center;
-        background-color: #f7fafc;
-        box-shadow: 0px 2px 1px #e1e3ec;
-      }
-  
-      .no_data_state_message {
-        color: #578495;
-        font-size: 1.5rem;
-        font-weight: 500;
-        // margin-top: 0.85rem;
-      }
-  
-      .no_data_state_help {
-        color: #a2a5b9;
-        font-size: 0.875rem;
-      }
+      // border-radius: 200px;
+      justify-content: center;
+      // background-color: #f7fafc;
+      // box-shadow: 0px 2px 1px #e1e3ec;
+    }
+
+    .no_data_state_message {
+      // color: #578495;
+      font-size: 2rem;
+      // font-size: 28px;
+      font-weight: 700;
+      // font-weight: 500;
+      // margin-top: 0.85rem;
+    }
+
+    .no_data_state_help {
+      color: #a2a5b9;
+      font-size: 0.875rem;
+      white-space: pre-line;
+      text-align: center;
     }
   }
-  
+}
+
+.no_data_found_btn_text {
+  width: 110px !important;
+  height: 34px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.no_data_found_btn {
+  background-color: #7c8281 !important;
+  padding: 5px 20px !important;
+  border: none !important;
+  font-size: 14px;
+  color: white;
+  // border-radius: 5px;
+}
+.no_data_found_btn:hover {
+  background-color: #8c9291 !important;
+}
+
+@media only screen and (max-width: 1024px) {
+  .no_data_state_message {
+    font-size: 1.4rem !important;
+  }
+}

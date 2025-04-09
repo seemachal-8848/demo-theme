@@ -5,7 +5,7 @@ import ImageGalleryWithBottomThumbnails from './ImageGalleryWithBottomThumbnails
 const ImageGalleryMaster = ({ slideShowImages }: ProductSlideshowImages) => {
   return (
     <>
-      {/* <ImageGalleryWithLeftThumbnails slideShowImages={slideShowImages} /> */}
+      <ImageGalleryWithLeftThumbnails slideShowImages={slideShowImages} />
       {/* <ImageGalleryWithRightThumbnails slideShowImages={slideShowImages} /> */}
       {/* <ImageGalleryWithBottomThumbnails slideShowImages={slideShowImages} /> */}
     </>

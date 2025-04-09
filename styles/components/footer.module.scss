@@ -1,0 +1,43 @@
+.footer_container {
+  font-family: 'Poppins';
+  border-top: 0.3px solid lightgrey;
+}
+
+.footer_container .footer_list_heading {
+  font-family: 'Playfair Display' !important;
+}
+
+.footer_list_container {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+
+.subscribe_btn {
+  padding: 8px 10px;
+  border-radius: 0;
+  text-transform: none;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 10px;
+  margin: 0;
+  line-height: 24px;
+  border: none;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  min-width: 111px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.footer_bottom {
+  border-top: 0.3px solid lightgrey;
+}
+
+@media (max-width: 768px) {
+  .footer_list_container {
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+}

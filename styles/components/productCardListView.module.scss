@@ -1,0 +1,29 @@
+.card_img {
+  width: 180px;
+  height: 230px;
+  margin-right: 20px;
+  object-fit: cover;
+}
+.quick_shop_btn {
+  background-color: #fff;
+  color: #56cfe1;
+  height: 40px;
+  border: 1px solid #56cfe1;
+  border-radius: 20px;
+}
+.quick_shop_icon {
+  transition: 0.5s ease 0s;
+  opacity: 0;
+  visibility: hidden;
+}
+.quick_shop_btn:hover .quick_shop_icon {
+  background-color: #56cfe1;
+  color: #fff;
+}
+.add_to_cart_btn {
+  background-color: #56cfe1;
+  color: #fff;
+  height: 40px;
+  border: 1px solid #56cfe1;
+  border-radius: 20px;
+}

@@ -2,39 +2,475 @@
   background-color: #f1f2f4;
   height: 100%;
 }
+
 .tag_section {
   background-color: #fff;
   padding: 16px;
 }
+
 .cardMargin {
   width: 96%;
   margin: 0 auto;
 }
-@media (max-width: 1024px) {
-  .catagoryImg {
-    height: auto !important;
-    margin-top: 0.5rem;
-  }
+
+.featuredCollectionTitle p {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: normal;
+  line-height: 34px;
 }
 
+.featuredCollectionTitle {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 34px;
+  text-transform: uppercase;
+  letter-spacing: normal;
+}
+
+.featured_collection_description {
+  font-family: 'Poppins';
+}
+
+.featured_banner_title1 {
+  font-size: 24px !important;
+  font-weight: 500 !important;
+  line-height: 24px;
+}
+
+.featured_banner_description1 {
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  line-height: 24px;
+}
+
+.featured_banner_title2 {
+  font-size: 18px !important;
+  font-weight: 500 !important;
+  line-height: 24px;
+}
+
+.featured_banner_description2 {
+  font-size: 50px !important;
+  font-weight: 600 !important;
+  line-height: 50px;
+}
+
+.promotional_banner_image_container {
+  position: relative;
+  overflow: hidden; // Ensures image doesn't exceed container boundaries
+  height: 281px;
+  height: 300px;
+}
+
+.promotional_banner_image {
+  transition: transform 0.4s ease-in-out; // Smooth transition effect
+  transition-duration: 0.6s;
+  height: 320px !important;
+}
+
+.promotional_banner_image:hover {
+  transform: translateY(-20px); // Move image upward by 10px
+}
+
+// Blog section
+
+.blog_banner_image_container {
+  position: relative;
+  overflow: hidden; // Ensures image doesn't exceed container boundaries
+  height: 277px;
+  // height: 360px;
+}
+
+.blog_banner_image {
+  transition: transform 0.4s ease-in-out; // Smooth transition effect
+  transition-duration: 0.6s;
+  transform: scaleX(1.1);
+  height: 312px !important;
+}
+
+.blog_banner_image:hover {
+  transform: scaleX(1.1) translateY(-30px); // Move image upward by 10px
+}
 
 // PersonalizedCategoryBlocks
 .category_btn {
   background-color: #cd8825;
   font-size: 0.9rem;
-} 
-.category_btn:focus {
-  background-color: #cd8825 !important; 
-
 }
+
+.category_btn:focus {
+  background-color: #cd8825 !important;
+}
+
 .category_btn:hover {
   background-color: #cd8825;
-} 
+}
 
-.category_title, .category_desc {
+.category_title,
+.category_desc {
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   line-clamp: 2;
+}
+
+// Featured Categories
+.horizontal_line {
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 60px;
+  height: 2px;
+  background: #222222;
+}
+
+// Follow Us section
+.follow_us_container .section_title {
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 44px;
+}
+
+.follow_us_container span {
+  font-family: 'Playfair Display';
+}
+
+.follow_us_container .slider_image {
+  transition: all 1s;
+}
+
+.follow_us_container .slider_image:hover {
+  transform: scale(1.1);
+}
+
+//promotional banner css
+.featured_banner_info {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+
+.featured_banner_info > p {
+  font-family: 'Poppins';
+}
+
+.featured_banner_heading {
+  font-size: 36px;
+}
+
+.featured_shop_now_btn {
+  height: 42px;
+  background: #222222;
+  color: #f1f2f4;
+  border: 0;
+  font-family: 'Poppins';
+  transition: background-color 0.2s ease-in-out;
+}
+
+.featured_shop_now_btn:hover {
+  background: #ec0101;
+}
+
+// Blog section css
+.blog_heading1 {
+  font-size: 14px;
+  color: #222222;
+  font-family: 'Poppins';
+  margin-top: 15px;
+  margin-bottom: 5px;
+  line-height: 23.8px;
+  font-weight: 400;
+}
+
+.blog_heading2 {
+  font-size: 16px;
+  color: #222222;
+  cursor: pointer;
+  font-weight: 500;
+  letter-spacing: normal;
+  line-height: 22.4px;
+  font-optical-sizing: auto;
+  font-feature-settings: normal;
+  text-rendering: optimizeLegibility;
+}
+
+.blog_heading2:hover {
+  // color: #ec0101;
+  color: #56cfe1;
+}
+
+.blog_description {
+  color: #878787;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  line-clamp: 3;
+  font-family: 'Poppins';
+  font-size: 14px;
+  margin-top: 10px;
+  line-height: 24px;
+}
+
+.blog_card_container {
+  padding-left: 15px;
+  padding-left: 15px;
+}
+
+.blog_section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.blog_image_wrapper {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+}
+
+/* Border effect on hover */
+.blog_image_wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgba(255, 255, 255, 0);
+  transition: border 0.4s ease-in-out;
+  pointer-events: none; /* Ensures it doesn't interfere with clicks */
+}
+
+.blog_image_wrapper img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition: transform 0.4s ease-in-out;
+  transform: scale(1.1); /* Default zoomed-in effect */
+  // transform: scaleX(1.2) scaleY(1.1); /* Scale width more than height */
+  transition:
+    transform 0.3s ease-in-out,
+    border 0.3s ease-in-out;
+  border: 5px solid transparent; /* Transparent border initially */
+}
+
+.blog_image_wrapper:hover img {
+  transform: scale(1.1) translateY(-10px); /* Zoom and move up effect */
+}
+
+.blog_image_wrapper:hover {
+  opacity: 1;
+}
+.blog_image_wrapper {
+  padding: 10px; /* Padding around the image */
+  display: inline-block; /* To contain the image and its border */
+}
+
+.blog_image_wrapper img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  transition:
+    transform 0.4s ease-in-out,
+    border 0.3s ease-in-out;
+  transform: scale(1.1); /* Default zoomed-in effect */
+  border: 5px solid transparent; /* Transparent border initially */
+  box-sizing: border-box; /* Ensures padding doesn't affect the image size */
+}
+
+.blog_image_wrapper:hover img {
+  transform: scale(1.1); /* Keeps zoom effect even on hover */
+  border-color: #000; /* Change to the desired border color */
+}
+
+.carousel_container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: auto;
+  overflow: hidden;
+}
+
+.carousel_arrow_left,
+.carousel_arrow_right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: white;
+  border: none;
+  color: black;
+  font-size: 20px;
+  cursor: pointer;
+  z-index: 100;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel_arrow_left {
+  left: -20px;
+}
+
+.carousel_arrow_right {
+  right: -20px;
+}
+
+/* Ensure blog cards are centered */
+.carousel_blog_card {
+  text-align: start;
+  padding: 10px;
+}
+
+.blog_banner_image_container {
+  position: relative;
+  overflow: hidden;
+  // height: 262px;
+}
+
+.blog_banner_image {
+  transition: transform 0.6s ease-in-out;
+  transform: scaleX(1.3);
+}
+
+.blog_banner_image:hover {
+  transform: scaleX(1.3) translateY(-20px);
+}
+
+/* Container for carousel to position arrows correctly */
+.carousel_blog_container {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+}
+
+/* Common styles for both arrows */
+.carousel_blog_arrow_left,
+.carousel_blog_arrow_right {
+  position: absolute;
+  top: 30%;
+  transform: translateY(-50%);
+  // background: rgba(0, 0, 0, 0.6); /* Semi-transparent background */
+  background-color: transparent;
+  border: 2px solid rgb(34, 34, 34);
+  color: rgb(34, 34, 34);
+  // border: none;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s ease-in-out;
+}
+
+/* Left arrow positioning */
+.carousel_blog_arrow_left {
+  left: 10px;
+}
+
+/* Right arrow positioning */
+.carousel_blog_arrow_right {
+  right: 10px;
+}
+
+/* Hover effect */
+.carousel_blog_arrow_left:hover,
+.carousel_blog_arrow_right:hover {
+  // background: rgba(0, 0, 0, 0.8);
+  background: rgb(86, 207, 225);
+  border: 2px solid rgb(86, 207, 225);
+  color: white;
+}
+.blog_main_container {
+  display: block;
+}
+.blog_carousel_main_container {
+  display: none;
+}
+
+.featured_collection_container {
+  margin-top: 2rem;
+}
+
+.horizontal_space {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+// Tablet Screen
+@media (max-width: 1024px) {
+  .blog_main_container {
+    display: none;
+  }
+  .blog_carousel_main_container {
+    display: block;
+  }
+  .catagoryImg {
+    height: auto !important;
+    margin-top: 0.5rem;
+  }
+  .promotional_banner_image_container {
+    height: 249px !important;
+  }
+  .promotional_banner_image {
+    height: 249px !important;
+  }
+}
+
+// Mobile Screen
+@media only screen and (max-width: 600px) {
+  .promotional_banner_image_container {
+    height: 201px !important;
+  }
+  .promotional_banner_image {
+    height: 201px !important;
+  }
+  .featuredCollectionTitle p {
+    font-size: 18px;
+  }
+  .carousel_blog_banner_image_container {
+    height: 258px !important;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+  .carousel_blog_banner_image {
+    height: 100% !important;
+    width: 100% !important;
+    object-fit: cover;
+    transition: 0.6s ease-in-out;
+    transform: scale(1.15);
+  }
+
+  .featured_collection_product_container {
+    padding-right: 0.3rem !important;
+    padding-left: 0.3rem !important;
+  }
+  .featured_collection_product_main_container {
+    margin-top: 2rem !important;
+  }
+  .featuredCollectionTitle {
+    font-size: 18px;
+    font-weight: 600 !important;
+  }
+  .horizontal_line {
+    width: 30px;
+  }
+  .horizontal_space {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
 }

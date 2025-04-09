@@ -8,8 +8,8 @@ import FeaturedCollectionsInspiration1Loading from './FeaturedCollectionsInspira
 import ErrorImage from '../../../../public/assets/images/error-icon.png';
 import { selectCart } from '../../../../store/slices/cart-slices/cart-local-slice';
 
-const FeaturedCollectionsInspiration1Master = () => {
-  const { allTagsData, fetchDisplayTagsDataFunction, isLoading, errorMessage } = useDisplayTagHooks();
+const FeaturedCollectionsInspiration1Master = ({ componentProperties }: any) => {
+  const { allTagsData, fetchDisplayTagsDataFunction, isLoading, errorMessage } = useDisplayTagHooks(componentProperties);
   const { addToCartItem, getPartyName } = useAddToCartHook();
   const wishlistData = useSelector(selectWishlist).items;
   const cartData = useSelector(selectCart).items;

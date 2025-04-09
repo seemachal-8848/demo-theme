@@ -7,6 +7,7 @@ import { selectCart } from '../../store/slices/cart-slices/cart-local-slice';
 import style from '../../styles/components/orderCheckout.module.scss';
 import CouponCode from './CouponCode';
 import StoreCredit from './StoreCredit';
+import { imageLoader } from '../../utils/image_loader';
 
 const OrderSummary = ({ cartListingItems }: any) => {
   const quotationId = useSelector(selectCart).quotation_Id;
@@ -23,10 +24,6 @@ const OrderSummary = ({ cartListingItems }: any) => {
     handleApplyStoreCredit,
     handleRemoveCouponCode,
   } = useOrderSummary(quotationId);
-
-  const imageLoader = ({ src, width, quality }: any) => {
-    return `${src}?w=${width}&q=${quality || 75}`;
-  };
 
   return (
     <div className="col-lg-4 col-12  order-lg-2 order-1">

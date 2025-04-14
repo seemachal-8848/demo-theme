@@ -400,3 +400,29 @@ input[type='text'] {
     margin-top: 12px;
   }
 }
+
+// product menu list 
+.product_category_container .react-multiple-carousel__arrow--right{
+  right: 12% !important;
+}
+.product_category_container .react-multiple-carousel__arrow--left{
+  left: 12% !important;
+}
+.product_category_container .react-multiple-carousel__arrow{
+  top:25% !important
+}
+
+.product_category_container .react-multi-carousel-list {
+  position:static !important;
+}
+
+// .product_category_container .react-multi-carousel-item{
+//   width: 200px !important;
+// }
+
+
+
+
+
+
+

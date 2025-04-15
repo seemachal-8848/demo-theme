@@ -2,6 +2,7 @@ import dynamic from 'next/dynamic';
 const DefaultLayout = dynamic(() => import('./DefaultLayout'));
 const CollapsibleLayout = dynamic(() => import('./CollapsibleLayout'));
 const TopFiltersLayout = dynamic(() => import('./TopFiltersLayout'));
+const FixedFiltersLayout = dynamic(() => import('./FixedFiltersLayout'));
 
 const LayoutRenderer = (props: any) => {
   const renderLayouts = () => {
@@ -18,6 +19,8 @@ const LayoutRenderer = (props: any) => {
         return <CollapsibleLayout {...props.productsGridProps} />;
       case 'Top Filters Layout':
         return <TopFiltersLayout />;
+      case 'Fixed Filters Layout':
+        return <FixedFiltersLayout />;
     }
   };
   return <>{renderLayouts()}</>;

@@ -90,14 +90,16 @@ function ProductListingMaster({ componentsList }: any) {
     if (componentsList?.top_section_component?.length === 0) return;
 
     if (componentsList?.top_section_component?.length > 0) {
-      return componentsList?.top_section_component?.map((componentName: any) => {
-        const Component = require(`./${componentName.section_name}/${componentName?.component_name}/MasterComponent`).default;
-        return (
-          <section className="listing-page position-realtive">
-            <Component key={componentName?.component_name} />
-          </section>
-        );
-      });
+      if ('section_name' in componentsList?.top_section_component[0]) {
+        return componentsList?.top_section_component?.map((componentName: any) => {
+          const Component = require(`./${componentName.section_name}/${componentName?.component_name}/MasterComponent`).default;
+          return (
+            <section className="listing-page position-realtive">
+              <Component key={componentName?.component_name} />
+            </section>
+          );
+        });
+      }
     }
   }
 
@@ -120,6 +122,7 @@ function ProductListingMaster({ componentsList }: any) {
   if (componentsList?.length === 0) {
     return <p> No components to display product list page.</p>;
   }
+  console.log('componentsList', componentsList);
   return (
     <>
       {renderProductListPageHeaderComponents()}

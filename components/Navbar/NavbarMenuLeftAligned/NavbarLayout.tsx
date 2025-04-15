@@ -37,7 +37,6 @@ function LogoInCenterNavbar({
       router.push('/product/' + searchTerm);
     }
   };
-
   const handleCloseSidebar = () => setIsSidebarOpen(false);
   const handleShowDropDown = () => setShowDropDown(!showDropDown);
   const handleToggle = (e: any) => {
@@ -63,30 +62,30 @@ function LogoInCenterNavbar({
       <header className={path === '/' ? (scrolled ? stylesNavbar.scrolled_navbar : stylesNavbar.transperant_navbar) : stylesNavbar?.header}>
         <nav>
           <div className={`${stylesNavbar.navbar} ps-lg-4 pe-lg-4`}>
-            <div className="w-100 d-flex justify-content-between py-2 align-items-center">
+            <div className="w-100 d-flex  py-2 align-items-center">
               {/* Product Categories Navbar */}
-              <div className=" d-none d-sm-none d-md-block">
-                <CustomProductCategoriesNavbar
-                  navbarData={navbarData}
-                  errorMessage={errorMessage}
-                  selectedCurrencyValue={selectedCurrencyValue}
-                  multiLanguagesData={multiLanguagesData}
-                  selectedLang={selectedLang}
-                  handleLanguageChange={handleLanguageChange}
-                />
+              {navbarData?.length > 0 && navbarData[0]?.slug === 'all-category' && (
+                <div className="col-4 d-none d-md-none d-lg-block">
+                  <CustomProductCategoriesNavbar
+                    navbarData={navbarData[0]?.values}
+                    errorMessage={errorMessage}
+                    selectedCurrencyValue={selectedCurrencyValue}
+                    multiLanguagesData={multiLanguagesData}
+                    selectedLang={selectedLang}
+                    handleLanguageChange={handleLanguageChange}
+                  />
+                </div>
+              )}
+              <div className="col-4 mobile-nav text-start px-3 px-sm-4 d-block d-lg-none">
+                <a
+                  className="mobile-menu-toggle w-icon-hamburger"
+                  aria-label="menu-toggle"
+                  onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+                >
+                  <RiMenu2Line className="icon" />
+                </a>
               </div>
-              <div className="mobile-nav d-flex justify-content-sm-between px-3 px-sm-4 d-sm-block d-md-none">
-                <Link href="#" legacyBehavior>
-                  <a
-                    className="mobile-menu-toggle  w-icon-hamburger"
-                    aria-label="menu-toggle"
-                    onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                  >
-                    <RiMenu2Line className="icon" />
-                  </a>
-                </Link>
-              </div>
-              <div>
+              <div className="col-4 text-center d-none d-sm-block">
                 <Link href="/" legacyBehavior>
                   <a>
                     <Image
@@ -103,7 +102,7 @@ function LogoInCenterNavbar({
                 </Link>
               </div>
 
-              <div className={``}>
+              <div className={`col-8 col-sm-4 text-end`}>
                 <ul className=" list-inline d-flex justify-content-end align-items-center m-0">
                   <li className={` ${stylesNavbar.list_inline_item_custom} `}>
                     <Link href="/wishlist " legacyBehavior>
@@ -224,17 +223,18 @@ function LogoInCenterNavbar({
           </div>
         </nav>
       </header>
-
-      <MobileProductCategories
-        show={isSidebarOpen}
-        handleClose={handleCloseSidebar}
-        navbarData={navbarData}
-        setIsSidebarOpen={setIsSidebarOpen}
-        selectedLanguageData={selectedLanguageData}
-        searchTerm={searchTerm}
-        setSearchTerm={setSearchTerm}
-        handleSearch={handleSearch}
-      />
+      {navbarData?.length > 0 && navbarData[0]?.slug === 'all-category' && (
+        <MobileProductCategories
+          show={isSidebarOpen}
+          handleClose={handleCloseSidebar}
+          navbarData={navbarData[0]?.values}
+          setIsSidebarOpen={setIsSidebarOpen}
+          selectedLanguageData={selectedLanguageData}
+          searchTerm={searchTerm}
+          setSearchTerm={setSearchTerm}
+          handleSearch={handleSearch}
+        />
+      )}
     </>
   );
 }

@@ -15,6 +15,9 @@
 input[type='text'] {
   box-shadow: none !important;
 }
+body::-webkit-scrollbar {
+  scrollbar-width: none;
+}
 
 // common font sizes
 .fs-12 {
@@ -210,12 +213,6 @@ input[type='text'] {
   border: 1px solid black;
 }
 
-@media (min-width: 768px) {
-  .mobile-menu-toggle {
-    display: none !important;
-  }
-}
-
 .list-toggle-rtl {
   margin-top: 25px;
 }
@@ -254,6 +251,9 @@ input[type='text'] {
 .navbar_category {
   text-align: right !important;
   color: #cd8825 !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .carousel_styles .react-multi-carousel-track {

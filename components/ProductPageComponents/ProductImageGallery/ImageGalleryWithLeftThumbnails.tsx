@@ -6,7 +6,7 @@ import imageStyle from '../../../styles/components/productImgMagnify.module.scss
 import useImageGallery from '../../../hooks/ProductImageGalleryHandler/useImageGallery';
 import { imageLoader } from '../../../utils/image_loader';
 
-const ImageGalleryWithLeftThumbnails = ({ slideShowImages }: ProductSlideshowImages) => {
+const ImageGalleryWithLeftThumbnails = ({ slideShowImages }: any) => {
   const { enlargeImg, activeImgIndex, handleSelectedImage, generateSrcSet } = useImageGallery({ slideShowImages });
   const smallScreen = window.matchMedia('(max-width: 768px)');
   return (

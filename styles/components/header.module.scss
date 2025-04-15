@@ -11,6 +11,9 @@
   font-size: 16px;
   font-weight: 500;
   color: #cd8825 !important;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .sub_menu:hover {

@@ -6,8 +6,6 @@ interface LayoutProps {
   componentProps?: any; // Define this properly if you know the structure
 }
 function Layout({ children, componentProps }: LayoutProps) {
-  console.log('props', componentProps);
-  console.log('sasa');
   const router = useRouter();
   const toShowHeader =
     router.pathname === '/login' || router.pathname === '/register' || router.pathname === '/forgot_password' ? false : true;
@@ -16,12 +14,18 @@ function Layout({ children, componentProps }: LayoutProps) {
     router.pathname === '/login' || router.pathname === '/register' || router.pathname === '/forgot_password' ? false : true;
 
   const HeaderRenderer = () => {
-    const Component = require(`./Navbar/${layoutData?.data.header_component}/MasterComponent`).default;
-    return <Component key="navbar-component" />;
+    if ('header_component' in layoutData?.data) {
+      const Component = require(`./Navbar/${layoutData?.data.header_component}/MasterComponent`).default;
+      return <Component key="navbar-component" />;
+    }
+    return null;
   };
   const FooterRenderer = () => {
-    const Component = require(`./Footer/${layoutData?.data.footer_component}/MasterComponent`).default;
-    return <Component key="navbar-component" />;
+    if ('footer_component' in layoutData?.data) {
+      const Component = require(`./Footer/${layoutData?.data.footer_component}/MasterComponent`).default;
+      return <Component key="footer-component" />;
+    }
+    return null;
   };
 
   return (

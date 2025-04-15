@@ -2,7 +2,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { Accordion, Offcanvas } from 'react-bootstrap';
 import { FaSearch } from 'react-icons/fa';
-import { FiCommand } from 'react-icons/fi';
 import logo from '../../public/assets/images/logo.png';
 
 const MobileProductCategories = ({

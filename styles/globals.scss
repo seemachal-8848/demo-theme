@@ -49,7 +49,7 @@ input[type='text'] {
   cursor: pointer;
 }
 
-.heading-category-l1:hover + .popover,
+.heading-category-l1:hover+.popover,
 .pop-over:hover {
   display: block;
 }
@@ -279,9 +279,11 @@ input[type='text'] {
   padding-left: 12%;
   width: 57%;
 }
+
 .font-poppins {
   font-family: Poppins !important;
 }
+
 .carousel-inner {
   height: 100% !important;
 }
@@ -318,21 +320,27 @@ input[type='text'] {
   margin-left: 250px !important;
   margin-right: 250px !important;
 }
+
 .grey {
   color: rgb(135, 135, 135);
 }
+
 .fs-14 {
   font-size: 14px !important;
 }
+
 .fs-16 {
   font-size: 16px;
 }
+
 .fw-600 {
   font-weight: 600;
 }
+
 .custom-margin-top {
   margin-top: 32px;
 }
+
 @media (min-width: 992px) {
   .productImgMagnify_product_img__mVrRB {
     width: 100% !important;
@@ -382,13 +390,13 @@ input[type='text'] {
 //Follow us section end
 
 // Footer css
-.mobile_footer_container .input-group > .form-control,
-.web_footer_container .input-group > .form-control {
+.mobile_footer_container .input-group>.form-control,
+.web_footer_container .input-group>.form-control {
   border-radius: 0 !important;
 }
 
-.mobile_footer_container .input-group > .form-control:focus,
-.web_footer_container .input-group > .form-control:focus {
+.mobile_footer_container .input-group>.form-control:focus,
+.web_footer_container .input-group>.form-control:focus {
   outline: none !important;
   box-shadow: none !important;
   border-color: #878787 !important;
@@ -401,28 +409,42 @@ input[type='text'] {
   }
 }
 
-// product menu list 
-.product_category_container .react-multiple-carousel__arrow--right{
-  right: 12% !important;
+// auto house product category  menu list 
+.product_category_container .react-multiple-carousel__arrow--right {
+  right: -9% !important;
 }
-.product_category_container .react-multiple-carousel__arrow--left{
-  left: 12% !important;
+
+.product_category_container .react-multiple-carousel__arrow--left {
+  left: -6% !important;
 }
-.product_category_container .react-multiple-carousel__arrow{
-  top:25% !important
+
+.product_category_container .react-multiple-carousel__arrow {
+  top: 25% !important
 }
 
 .product_category_container .react-multi-carousel-list {
-  position:static !important;
+  position: static !important;
 }
 
-// .product_category_container .react-multi-carousel-item{
-//   width: 200px !important;
-// }
+.react-multiple-carousel__arrow:hover {
+  background-color: #7B189F !important;
+}
+
+.react-multiple-carousel__arrow:hover::before {
+  color: #fff !important;
+}
 
 
+.product_category_container .react-multi-carousel-item{
+  width: fit-content !important;
+}
 
-
-
-
-
+@media (min-width: 320px) and (max-width: 760px) {
+  .product_category_container .react-multi-carousel-list {
+    width: 80% !important;
+    margin-left: 35px !important;
+  }
+  .product_category_container .react-multiple-carousel__arrow--left {
+    left: 0% !important;
+  }
+}

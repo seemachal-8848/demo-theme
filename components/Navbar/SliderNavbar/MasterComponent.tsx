@@ -11,6 +11,7 @@ const MasterComponent = () => {
             <HeaderActions />
             <ProductCategoryMenuList
                 navbarData={navbarData}
+                isLoading={isLoading}
             />
         </>
     )

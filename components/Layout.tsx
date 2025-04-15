@@ -14,14 +14,14 @@ function Layout({ children, componentProps }: LayoutProps) {
     router.pathname === '/login' || router.pathname === '/register' || router.pathname === '/forgot_password' ? false : true;
 
   const HeaderRenderer = () => {
-    if ('header_component' in layoutData?.data) {
+    if ('header_component' in layoutData?.data && layoutData?.data.header_component !== '') {
       const Component = require(`./Navbar/${layoutData?.data.header_component}/MasterComponent`).default;
       return <Component key="navbar-component" />;
     }
     return null;
   };
   const FooterRenderer = () => {
-    if ('footer_component' in layoutData?.data) {
+    if ('footer_component' in layoutData?.data && layoutData?.data.footer_component !== '') {
       const Component = require(`./Footer/${layoutData?.data.footer_component}/MasterComponent`).default;
       return <Component key="footer-component" />;
     }

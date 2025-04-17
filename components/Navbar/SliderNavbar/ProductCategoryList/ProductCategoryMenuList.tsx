@@ -5,6 +5,7 @@ import CategoryMenuListSkeleton from './CategoryMenuListSkeleton'
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
 import style from '../../../../styles/components/ProductCategoryMenuList.module.scss';
+import React from 'react';
 
 const ProductCategoryMenuList = ({ navbarData, isLoading }: any) => {
   const [activeCategory, setActiveCategory] = useState("")
@@ -13,12 +14,12 @@ const ProductCategoryMenuList = ({ navbarData, isLoading }: any) => {
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1024 },
-      items: 6,
+      items: 10,
       slidesToSlide: 2,
     },
     tablet: {
       breakpoint: { max: 1024, min: 464 },
-      items: 5,
+      items: 3,
       slidesToSlide: 2,
     },
     mobile: {
@@ -28,7 +29,8 @@ const ProductCategoryMenuList = ({ navbarData, isLoading }: any) => {
     },
   };
 
-  const handleMouseEnter = (item: any) => {
+ 
+   const handleMouseEnter = (item: any) => {
     setActiveCategory(item?.label)
     setSubMenuList(item?.values)
   }
@@ -38,7 +40,7 @@ const ProductCategoryMenuList = ({ navbarData, isLoading }: any) => {
   }
 
   return (
-    <div className="w-100">
+    <div className="w-100 position-relative" onMouseLeave={() => setSubMenuList([])}>
       {/* Main Navigation Bar */}
       <div className="border-bottom">
         <div className={`container position-relative py-2 px-0 product_category_container`}>
@@ -58,8 +60,7 @@ const ProductCategoryMenuList = ({ navbarData, isLoading }: any) => {
               return (
                 <div
                   key={index}
-                  className={`px-3 py-2 text-nowrap fw-medium ${style.category_tab} ${isSale ? "text-danger" : isActive ? style.active_tab : "text-dark"
-                    }`}
+                  className={`px-3 py-2 text-nowrap fw-medium ${style.category_tab} ${isSale ? "text-danger" : isActive ? style.active_tab : "text-dark"}`}
                   onMouseEnter={() => handleMouseEnter(item)}
                   style={{ cursor: "pointer" }}
                 >
@@ -70,13 +71,82 @@ const ProductCategoryMenuList = ({ navbarData, isLoading }: any) => {
           </Carousel>
         </div>
       </div>
+
       {/* Mega Menu Dropdown */}
-      <SubProductList subMenuList={subMenuList} />
+      {subMenuList?.length > 0 && (
+        <SubProductList
+          subMenuList={subMenuList}
+        />
+      )}
     </div>
+
+
   )
 }
 
 export default ProductCategoryMenuList;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

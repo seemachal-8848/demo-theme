@@ -4,9 +4,9 @@ const CategoryMenuListSkeleton = () => {
     return (
         <div className="container" style={{ overflowX: 'auto' }}>
             {/* Menu Item Placeholders */}
-            <div className="d-flex flex-grow-1 justify-content-between">
+            <div className="d-flex flex-grow-1 justify-content-between align-items-center">
                 {[...Array(8)].map((_, index) => (
-                    <div key={index} className="mx-2">
+                    <div key={index} className="mx-2 mt-2">
                         <Placeholder animation="glow">
                             <Placeholder xs={12} style={{ height: '20px', width: '80px' }} />
                         </Placeholder>

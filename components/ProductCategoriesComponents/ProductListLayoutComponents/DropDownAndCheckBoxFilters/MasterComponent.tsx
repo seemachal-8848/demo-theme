@@ -6,11 +6,7 @@ import { clippingParents } from '@popperjs/core';
 
 function WebFilter() {
   const { filtersData, isLoading, errorMessage, handleFilterCheckFun, selectedFilters, clearFilters } = useDropDownFilterHook();
-console.log("filtersData",filtersData)
 
-const handleValueChange = (e:any)=>{
-console.log("??",e)
-}
   const renderFilters: any = () => {
     if (isLoading) {
       return (
@@ -28,7 +24,6 @@ console.log("??",e)
 
     if (filtersData?.filters?.length > 0) {
       return filtersData.filters.map((filter: any, index: any) => {
-        console.log("filter>>",filter)
         // Render FilterColour component for "color" section inside an Accordion
         if (filter.section === 'Color') {
           return (
@@ -43,24 +38,30 @@ console.log("??",e)
           );
         }
         // Render default accordion for other filters
-        
+
         return (
           <div key={index}>
-            <div className="filter-name">{filter?.section}</div>
-            <div className="horizontal-line"></div>
-            <div className="">
-            <Select
+            <div className="filter-name mb-2">{filter?.section}</div>
+            {/* <div className="horizontal-line"></div> */}
+            <div className='drop_down_container'>
+              <Select
                 placeholder={filter?.section || ''}
-                options={Array.isArray(filter?.values) 
+                name={filter?.section} // Pass section name
+                options={Array.isArray(filter?.values)
                   ? filter.values.map((val: any) => ({ label: val, value: val, section: filter?.section }))
                   : []
                 }
-                onChange={(option) => handleFilterCheckFun(option)}
-                // value={makeOptions.find(opt => opt.value === filters.make) || null}
+                onChange={(selected, meta) => handleFilterCheckFun(selected, meta)}
                 isClearable
                 isMulti
+                value={
+                  selectedFilters?.length > 0 && selectedFilters.find((f: any) => f.name === filter.section)?.value.map((val: string) => ({
+                    label: val,
+                    value: val,
+                    section: filter.section,
+                  })) || []
+                }
               />
-            
             </div>
             <hr className="m-0 my-3" />
           </div>
@@ -88,6 +89,7 @@ console.log("??",e)
 }
 
 export default WebFilter;
+
 
 
 

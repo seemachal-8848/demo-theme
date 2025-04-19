@@ -6,6 +6,9 @@ const DefaultLayout = ({ filterComponent, CardsComponent, productsGridData }: an
       case 'Standard Filters':
         const Component = require(`../ProductListLayoutComponents/BasicFilters/MasterComponent`).default;
         return <Component key={'Standard Filters'} />;
+        case 'Dropdown Plus CheckBox':
+        const DropDownComponent = require(`../ProductListLayoutComponents/DropDownAndCheckBoxFilters/MasterComponent`).default;
+        return <DropDownComponent key={'Dropdown Plus CheckBox'} />;
       default:
         return;
     }
@@ -25,8 +28,8 @@ const DefaultLayout = ({ filterComponent, CardsComponent, productsGridData }: an
   return (
     <div className="ps-lg-5 pe-lg-4 px-md-3 px-3">
       <div className="row">
-        <div className="col-12 col-md-2 web-filter d-none d-sm-block ">{renderFilter()}</div>
-        <div className="container-md col-md-10">
+        <div className="col-12 col-md-3 col-xxl-2 web-filter d-none d-sm-block">{renderFilter()}</div>
+        <div className="container-md col-md-9 col-xxl-10">
           <div className=" mt-2 product-listing-row">{renderProducts()}</div>
         </div>
       </div>

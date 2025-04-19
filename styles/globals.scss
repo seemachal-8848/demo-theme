@@ -716,11 +716,11 @@ body::-webkit-scrollbar {
   position: static !important;
 }
 
-.product_category_container .react-multiple-carousel__arrow:hover {
+.react-multiple-carousel__arrow:hover {
   background-color: #7B189F !important;
 }
 
-.product_category_container .react-multiple-carousel__arrow:hover::before {
+.react-multiple-carousel__arrow:hover::before {
   color: #fff !important;
 }
 
@@ -755,4 +755,10 @@ body::-webkit-scrollbar {
   border-radius: 10px;
   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
   background-color: #555;
+}
+
+// drop down filter 
+
+.drop_down_container .css-b62m3t-container{
+  width:100%  !important
 }

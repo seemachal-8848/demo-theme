@@ -24,7 +24,7 @@ const RegisterComponent = () => {
     address_line_2: '',
     addressType: '',
     pincode: '',
-    user_type: 'Customer',
+    role: 'Customer',
   });
 
   const [errors, setErrors] = useState<any>({});
@@ -103,7 +103,7 @@ const RegisterComponent = () => {
                   {errors.name && <div className="text-danger">{errors.name}</div>}
                   {/* lkkkks */}
                   <div className="py-2">
-                    <select name="user_type" value={formData.user_type} onChange={handleChange} className="form-control">
+                    <select name="role" value={formData.role} onChange={handleChange} className="form-control">
                       {/* <option value="">Select User Type</option> */}
                       <option value="Customer">Customer</option>
                       {/* <option value="Salesperson">Salesperson</option>
@@ -250,7 +250,7 @@ const RegisterComponent = () => {
                           address_line_2: '',
                           addressType: '',
                           pincode: '',
-                          user_type: 'Customer',
+                          role: 'Customer',
                         });
                         setErrors({});
                       }}

@@ -24,6 +24,7 @@ const RegisterComponent = () => {
     address_line_2: '',
     addressType: '',
     pincode: '',
+    user_type: 'Customer',
   });
 
   const [errors, setErrors] = useState<any>({});
@@ -32,6 +33,7 @@ const RegisterComponent = () => {
     const newErrors: any = {};
     if (!formData.salutation) newErrors.salutation = 'Salutation is required';
     if (!formData.name) newErrors.name = 'Name is required';
+    // if (!formData.userType) newErrors.userType = 'User Type is required';
     if (!formData.email) newErrors.email = 'Email is required';
     else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) newErrors.email = 'Invalid email address';
     if (!formData.password) newErrors.password = 'Password is required';
@@ -99,6 +101,17 @@ const RegisterComponent = () => {
                   </div>
                   {errors?.salutation && <div className="text-danger">{errors?.salutation}</div>}
                   {errors.name && <div className="text-danger">{errors.name}</div>}
+                  {/* lkkkks */}
+                  <div className="py-2">
+                    <select name="user_type" value={formData.user_type} onChange={handleChange} className="form-control">
+                      {/* <option value="">Select User Type</option> */}
+                      <option value="Customer">Customer</option>
+                      {/* <option value="Salesperson">Salesperson</option>
+                      <option value="Dealer">Dealer</option> */}
+                    </select>
+                    {errors.userType && <div className="text-danger">{errors.userType}</div>}
+                  </div>
+
 
                   <div className="row py-md-2">
                     <div className="col-12 col-md-6 py-2 py-md-0">
@@ -237,6 +250,7 @@ const RegisterComponent = () => {
                           address_line_2: '',
                           addressType: '',
                           pincode: '',
+                          user_type: 'Customer',
                         });
                         setErrors({});
                       }}

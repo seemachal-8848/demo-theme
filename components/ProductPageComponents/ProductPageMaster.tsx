@@ -58,7 +58,7 @@ function ProductPageMaster({ productPageComponents }: ProductPageComponentsTypes
     }
   }
 
-  function renderProductInformationComponents() {
+  function renderProductImageComponents() {
     if (productPageComponents?.magnified_image_component) {
       return (
         <div className="col-md-6 p-4 h-100">
@@ -72,7 +72,11 @@ function ProductPageMaster({ productPageComponents }: ProductPageComponentsTypes
           </div>
         </div>
       );
-    } else if (productPageComponents?.product_information_component) {
+    }
+  }
+
+  function renderProductInformationComponents() {
+    if (productPageComponents?.product_information_component) {
       if (productPageComponents?.product_information_component === 'Standard Product Information') {
         return (
           <div className="col-md-6 p-4">
@@ -134,6 +138,7 @@ function ProductPageMaster({ productPageComponents }: ProductPageComponentsTypes
       <div className={`container-fluid ${styles.detailContainer} w-100 ps-lg-5 pe-lg-4 `}>
         {renderHeaderComponents()}
         <div className="row">
+          {renderProductImageComponents()}
           {renderProductInformationComponents()}
           {renderProductPageBottomSectionComponents()}
         </div>
@@ -148,3 +153,4 @@ function ProductPageMaster({ productPageComponents }: ProductPageComponentsTypes
 }
 
 export default ProductPageMaster;
+

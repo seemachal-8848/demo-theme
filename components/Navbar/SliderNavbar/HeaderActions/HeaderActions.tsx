@@ -1,9 +1,32 @@
 "use client"
 import type React from "react"
 import Link from "next/link"
-import { FiSearch, FiUser, FiShoppingCart } from "react-icons/fi"
+import { FiSearch, FiUser, FiShoppingCart, FiHeart } from "react-icons/fi"
+import { CiLogout, CiLogin } from "react-icons/ci";
+import useFetchCartItems from "../../../../hooks/CartPageHook/useFetchCartItems"
+import useWishlist from "../../../../hooks/WishlistHooks/useWishlistHook"
+import useNavbar from "../../../../hooks/GeneralHooks/useNavbar"
+import { useRouter } from "next/router";
+import { useState } from "react";
 
 const HeaderActions = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const { cartCount } = useFetchCartItems();
+  const { wishlistCount } = useWishlist();
+  const { handleLogoutUser, isLoggedIn } = useNavbar();
+  const router = useRouter();
+
+  const handleSearch = (e: any) => {
+    e.preventDefault();
+    if (searchTerm.trim() !== '') {
+      const formattedSearchTerm = searchTerm.toLowerCase().trim().replace(/\s+/g, '-');
+      router.push({
+        pathname: `/product-category/${formattedSearchTerm}`,
+        query: { page: 1, currency: 'INR' }
+      });
+    }
+  };
+  
   return (
     <header className="border-bottom py-3">
       <div className="container-fluid px-4">
@@ -45,11 +68,14 @@ const HeaderActions = () => {
                   className="form-control border border-1 rounded-start py-2"
                   placeholder="Search..."
                   aria-label="Search"
+                  value={searchTerm}
+                  onChange={(e: any) => setSearchTerm(e.target.value)}
                 />
                 <button
                   className="btn text-white rounded-end px-3"
                   type="button"
                   style={{ backgroundColor: "#7B189F" }}
+                  onClick={handleSearch}
                 >
                   <FiSearch size={20} />
                 </button>
@@ -59,13 +85,30 @@ const HeaderActions = () => {
 
           {/* User Actions */}
           <div className="col-md-3 d-flex justify-content-center align-items-center gap-4 ps-5">
-            <Link href="/account" className="text-decoration-none text-dark d-flex align-items-center gap-2">
+            {isLoggedIn ? (
+              <span onClick={handleLogoutUser} style={{ cursor: 'pointer' }}><CiLogout /></span>
+            ) :
+              (
+                <Link href={'/login'}>
+                  <CiLogin />
+                </Link>
+              )}
+            {/* <Link href="/account" className="text-decoration-none text-dark d-flex align-items-center gap-2">
               <FiUser size={20} />
               <span>Sign In</span>
+            </Link> */}
+            <Link href="/my-orders" passHref className="text-decoration-none text-dark">
+              <span>My Orders</span>
+            </Link>
+            <Link href="/wishlist">
+              <FiHeart className="icon" />
+              <span>
+                {wishlistCount}
+              </span>
             </Link>
             <Link href="/cart" className="text-decoration-none text-dark d-flex align-items-center gap-2">
               <FiShoppingCart size={20} />
-              <span>Cart</span>
+              <span>{cartCount}</span>
             </Link>
           </div>
         </div>

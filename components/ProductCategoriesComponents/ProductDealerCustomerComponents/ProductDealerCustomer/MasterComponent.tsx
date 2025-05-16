@@ -1,9 +1,8 @@
-import NavbarWithoutSearch from "./NavbarWithoutSearch";
-
+import DealerCustomerList from './DealerCustomerList';
 const MasterComponent = () => {
     return (
         <>
-            <NavbarWithoutSearch />
+        <DealerCustomerList />
         </>
     )
 }

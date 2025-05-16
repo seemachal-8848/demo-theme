@@ -1,0 +1,80 @@
+.otpContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.otpCard {
+  width: 100%;
+  max-width: 360px;
+  padding: 2rem 1.5rem;
+  // background-color: #f9fbfd;
+  border-radius: 12px;
+  // box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.otpCard h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.otpCard p {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.otpInputGroup {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.otpInput {
+  width: 42px;
+  height: 48px;
+  font-size: 1.25rem;
+  text-align: center;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+.otpInput:focus {
+  border-color: #7c3aed;
+}
+
+.verifyBtn {
+  width: 100%;
+  padding: 0.6rem 0;
+  background-color: #7c3aed;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.verifyBtn:hover {
+  background-color: #6a21d3;
+}
+
+.resendText {
+  font-size: 0.85rem;
+  margin-top: 1rem;
+  color: #888;
+}
+
+.resendLink {
+  color: #7c3aed;
+  cursor: pointer;
+  font-weight: 600;
+}

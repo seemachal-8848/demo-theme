@@ -1,0 +1,189 @@
+.product_card {
+  position: relative;
+  border: 1px solid #9696967a;
+  font-weight: 300;
+  padding: 40px 10px 10px;
+  height: 100%;
+}
+
+.product_card_img {
+  position: relative;
+  height: 146px !important;
+  height: 180px !important;
+  overflow: hidden;
+  height: 145px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.add_to_cart_btn {
+  border: 1px solid #cd8825;
+  color: #ffffff;
+  font-size: 12px;
+  padding: 0.3rem 0.5rem;
+  font-weight: 600;
+  background-color: #cd8825;
+}
+
+.addded_to_cart_btn {
+  border: 1px solid #184f2f;
+  color: #ffffff;
+  font-size: 12px;
+  padding: 0.3rem 0.5rem;
+  font-weight: 600;
+  background-color: #184f2f;
+}
+
+.icon_margin {
+  margin-left: 0.7rem;
+}
+
+.product_name {
+  font-weight: 500;
+  margin-bottom: 3px !important;
+  font-size: 15px;
+  line-height: 20px;
+  text-decoration: none !important;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+}
+
+.product_name a {
+  text-decoration: none !important;
+}
+
+.product_card_text {
+  font-size: 14px;
+  padding: 0px !important;
+  margin-bottom: 3px !important;
+}
+
+.carListingBtn {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  background-color: #cd8825;
+  color: #fff;
+  padding: 5px 11px;
+  border: 1px solid #cd8825;
+  height: 30px;
+}
+
+.carListingBtn:disabled,
+.carListingBtn:hover {
+  background-color: #cd8825;
+  border: 1px solid #cd8825;
+}
+
+.carListingBtn_added {
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  background-color: #184f2f;
+  color: #fff;
+  padding: 5px 11px;
+  border: 1px solid #184f2f;
+  height: 30px;
+}
+
+.carListingBtn_added:hover {
+  background-color: #184f2f;
+  border: 1px solid #184f2f;
+}
+
+.mrpPrice {
+  color: #7f7f7f !important;
+  font-size: 13px;
+  font-weight: 600 !important;
+}
+
+.wishlist_icon {
+  position: absolute;
+  right: 0px !important;
+  font-size: 22px;
+  top: -8px !important;
+  cursor: pointer;
+}
+
+.product_code_img {
+  padding: 10px;
+  transition: transform 0.2s;
+  max-width: 200px;
+  max-height: 100%;
+  width: 100%;
+}
+
+.product_code_img:hover {
+  transform: scale(1.04);
+  /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+.content_wrap {
+  padding-top: 10px !important;
+  padding-bottom: 10px !important;
+  text-align: left;
+}
+
+.product_content_wrap {
+  height: auto;
+}
+
+.product_card:hover {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.productCode {
+  font-size: 0.8rem;
+}
+
+.sort_by_select {
+  width: 10rem;
+  padding: 0 0.5rem 0 0.5rem;
+  margin: 0 0.5rem 0 0.5rem;
+  border: 1px solid #1a1a49;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.cardBtn {
+  margin-left: 3px;
+}
+
+// testing 
+.tabimageContainer {
+  position: relative;
+  width: 100% !important;
+  overflow: hidden;
+}
+
+.cornerTag {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px;
+  height: 50px;
+  color: #ffffff;
+  font-weight: bold;
+  font-size: 16px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 4px;
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  z-index: 2;
+}
+
+.greenBg {
+  background: green;
+}
+
+.yellowBg {
+  background: #ffc107;
+}
+
+.redBg {
+  background: red;
+}

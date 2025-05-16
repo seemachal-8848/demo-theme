@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from 'react';
 import CartCard from '../../../cards/CartCard';
+import { toast } from 'react-toastify';
 
 interface CartCardContainerPropTypes {
   cartListingItems: any;
@@ -10,6 +11,13 @@ interface CartCardContainerPropTypes {
 
 const CartCardContainer = ({ cartListingItems, RemoveItemCartAPIFunc, setCartListingItems, addToCartItem }: CartCardContainerPropTypes) => {
   const allOrders = cartListingItems?.categories?.flatMap((category: any) => category?.orders);
+  // Read roles from localStorage and parse them
+  const userRoles = JSON.parse(localStorage.getItem('user_role') || '[]');
+
+  const isB2BSalesPerson = userRoles.includes('Sales Person');
+  const isB2CSalesPerson = userRoles.includes('POS Sales Person');
+
+  const type = isB2BSalesPerson ? 'B2B' : isB2CSalesPerson ? 'B2C' : null;
 
   const handleUpdateCart = useCallback((updatedList: any) => {
     const params = {
@@ -45,21 +53,29 @@ const CartCardContainer = ({ cartListingItems, RemoveItemCartAPIFunc, setCartLis
   };
 
   const handleQtyButtonClick = (item_code: string, newQty: number) => {
+    let isValid = true;
     if (newQty > 0) {
       const updatedItems = cartListingItems?.categories?.map((category: any) => ({
         ...category,
         orders: category.orders.map((item: any) => {
           if (item.item_code === item_code) {
+            if (type === 'B2B' && newQty < item?.min_order_qty) {
+              toast.warning(`Order quantity cannot be less than minimum order quantity ${item?.min_order_qty}`);
+              isValid = false;
+              return item;
+            }
             return { ...item, qty: newQty };
           }
           return item;
         }),
       }));
+      if (!isValid) return;
       const updatedCartItems = [{ item_code, quantity: newQty }];
       setCartListingItems((prevItems: any) => ({ ...prevItems, categories: updatedItems }));
       handleUpdateCart(updatedCartItems);
     }
   };
+
 
   return (
     <div className=" mt-5 w-100">

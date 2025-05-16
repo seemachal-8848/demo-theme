@@ -13,6 +13,7 @@ const FilterModal = dynamic(() => import('./FilterComponents/FilterModal'));
 const SortbyModal = dynamic(() => import('./HorizantalFilter/SortbyModal'));
 const AddToCatalogModal = dynamic(() => import('../Catalog/AddToCatalogModal'));
 import LayoutRenderer from './ProductListPageLayout/LayoutRenderer';
+import { useRouter } from 'next/router';
 
 function ProductListingMaster({ componentsList }: any) {
   const {
@@ -37,6 +38,9 @@ function ProductListingMaster({ componentsList }: any) {
   const { handleAddProductToCatalog, handleDeleteCatalogItem }: any = useCatalogFunctions();
   const [catalogItem, setCatalogItem] = useState('');
   const [showCatalogModal, setShowCatalogModal] = useState(false);
+  const router = useRouter();
+  const [isAuthChecked, setIsAuthChecked] = useState(false);
+
   const handleCloseCatalogModal = () => setShowCatalogModal(false);
   const handleShowCatalogModal = (item: any) => {
     setCatalogItem(item);
@@ -122,7 +126,21 @@ function ProductListingMaster({ componentsList }: any) {
   if (componentsList?.length === 0) {
     return <p> No components to display product list page.</p>;
   }
-  console.log('componentsList', componentsList);
+
+
+  useEffect(() => {
+    const isLoggedIn = localStorage.getItem('isLoggedIn');
+    if (!isLoggedIn) {
+      router.replace('/login');
+    } else {
+      setIsAuthChecked(true); // Only show page when logged in
+    }
+  }, []);
+
+  if (!isAuthChecked) {
+    return null;
+  }
+
   return (
     <>
       {renderProductListPageHeaderComponents()}

@@ -13,7 +13,7 @@ const PersonalizedCategories = ({ homeTopCategories }: any) => {
             className={`col-12 col-md-6 pb-3 pb-md-0 pe-0 ${style.masonryContainerImage} ${style.masonryContainerImage_wrapper}  ${style.masonryContainerImage_wrapper_women} `}
           >
             <Link
-              href={`${homeTopCategories[0]?.category_url}`}
+              href={`${homeTopCategories[0]?.category_url}?page=1&currency=INR`}
               className="banner-title text-white text-capitalize ls-25 homecategory_btnlink "
             >
               <div className={style.women_image_container}>
@@ -44,7 +44,7 @@ const PersonalizedCategories = ({ homeTopCategories }: any) => {
               <div className={`col-6 m-0 ${style.center_image_wrapper}`}>
                 <div className={` ${style.middle_margin}  ${style.masonryContainerImage_wrapper} ${style.masonryContainerImage}`}>
                   <Link
-                    href={`${homeTopCategories[1]?.category_url}`}
+                    href={`${homeTopCategories[1]?.category_url}?page=1&currency=INR`}
                     className="banner-title text-white text-capitalize ls-25 homecategory_btnlink"
                   >
                     <div className={style.image_container}>
@@ -72,7 +72,7 @@ const PersonalizedCategories = ({ homeTopCategories }: any) => {
                 </div>
                 <div className={`${style.masonryContainerImage} ${style.masonryContainerImage_wrapper} `}>
                   <Link
-                    href={`${homeTopCategories[2]?.category_url}`}
+                    href={`${homeTopCategories[2]?.category_url}?page=1&currency=INR`}
                     className="banner-title text-white text-capitalize ls-25 homecategory_btnlink"
                   >
                     <div className={style.image_container}>
@@ -101,7 +101,7 @@ const PersonalizedCategories = ({ homeTopCategories }: any) => {
               </div>
               <div className={`col-6 p-md-0 w-50  ${style.masonryContainerImage} ${style.masonryContainerImage_wrapper} `}>
                 <Link
-                  href={`${homeTopCategories[3]?.category_url}`}
+                  href={`${homeTopCategories[3]?.category_url}?page=1&currency=INR`}
                   className="banner-title text-white text-capitalize ls-25 homecategory_btnlink"
                 >
                   <div className={style.watch_image_container}>
@@ -109,7 +109,7 @@ const PersonalizedCategories = ({ homeTopCategories }: any) => {
                       <Image
                         loader={imageLoader}
                         className={`w-100 ${style.watch_image}`}
-                        style={{ maxWidth: '100%', objectFit: 'cover', zIndex: '3' }}
+                        style={{ maxWidth: '100%', objectFit: 'contain', zIndex: '3' }}
                         src={homeTopCategories?.length > 0 && homeTopCategories[3]?.product_img}
                         alt={homeTopCategories[3]?.label}
                         width={270}

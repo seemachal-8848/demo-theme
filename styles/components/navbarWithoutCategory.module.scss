@@ -1,0 +1,66 @@
+.navLink {
+    position: relative;
+    padding-bottom: 4px;
+    color: #000;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.navLink::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background-color: #000;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
+}
+
+.navLink:hover::after,
+.navLink.active::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+.order_list_dropdown {
+    text-align: center;
+    font-size: 14px;
+    z-index: 9999 !important;
+}
+
+.order_list_items {
+    padding: 4px !important;
+    font-size: 14px;
+    padding: 3px;
+}
+
+.icon_container {
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center !important;
+    position: relative;
+    text-decoration: none;
+}
+
+.badge_count {
+    background: #7B189F;
+    border-radius: 50% !important;
+    bottom: 35px !important;
+    font-size: 12px;
+    font-weight: 600;
+    height: 1.1rem;
+    position: absolute;
+    right: 7px !important;
+    text-align: center;
+    width: 1.1rem;
+    color: #ffffff;
+}
+
+.badge_count_cart {
+    right: -10px !important;
+}

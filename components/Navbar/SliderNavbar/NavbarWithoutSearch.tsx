@@ -10,22 +10,30 @@ import { useRouter } from "next/router"; // Switch to "next/navigation" if using
 import { useState } from "react";
 import { NavDropdown } from 'react-bootstrap';
 import "react-select-search/style.css";
-import style from "../../../styles/components/sliderNavbar.module.scss";
+import style from "../../../styles/components/navbarWithoutCategory.module.scss";
 import autohouseLogo from "../../../public/assets/images/autohousehubliLarge.png";
 import Image from "next/image";
+import { useDispatch } from "react-redux";
+import { resetBreadcrumb } from "../../../store/slices/category-breadcrumb-slice/category-breadcrumb-slice";
 
 const NavbarWithoutSearch = () => {
   const [showDropDown, setShowDropDown] = useState(false);
   const { cartCount } = useFetchCartItems();
   const { wishlistCount } = useWishlist();
   const { handleLogoutUser, isLoggedIn } = useNavbar();
-  const { pathname } = useRouter();
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const { asPath, pathname } = router;
   const user = localStorage.getItem('party_name');
   const handleShowDropDown = () => setShowDropDown(!showDropDown);
 
   const handleToggle = (e: any) => {
     setShowDropDown((prevState) => !prevState);
   };
+
+  if (!asPath.startsWith("/product-category")) {
+    dispatch(resetBreadcrumb());
+  }
 
   return (
     <header className="border-bottom py-3 navbar_slider_header">

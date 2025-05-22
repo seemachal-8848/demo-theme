@@ -1,25 +1,31 @@
+
 "use client";
 import type React from "react";
-import Link from "next/link";
-import { FiSearch, FiShoppingCart, FiHeart, FiUser } from "react-icons/fi";
-import { CiLogout, CiLogin } from "react-icons/ci";
-import { FaShoppingBag } from "react-icons/fa";
-import useFetchCartItems from "../../../../hooks/CartPageHook/useFetchCartItems";
-import useWishlist from "../../../../hooks/WishlistHooks/useWishlistHook";
-import useNavbar from "../../../../hooks/GeneralHooks/useNavbar";
+import { FiSearch } from "react-icons/fi";
 import { useRouter } from "next/router"; // Switch to "next/navigation" if using App Router
 import { useState } from "react";
-import { NavDropdown } from 'react-bootstrap';
 import SelectSearch from "react-select-search";
+import Select from "react-select";
 import "react-select-search/style.css";
-import style from "../../../../styles/components/sliderNavbar.module.scss";
 import { flattenCategories } from "./flattenCategories"; // Adjust the import path as necessary
 
-const HeaderActions = ({ navbarData, selectedLanguageData }: any) => {
+const HeaderActions = ({ navbarData }: any) => {
   const [searchTerm, setSearchTerm] = useState("");
   const router = useRouter();
   const user = localStorage.getItem('party_name');
   const { query } = router;
+
+
+  const flattenedData = flattenCategories(navbarData);
+  // Transform to react-select-search format
+  const formattedSearchOptions = flattenedData.map((option: any) => ({
+    name: option?.label, // Displayed in the dropdown
+    value: option?.slug, // Used for routing
+  }));
+  const formattedSelectOptions = formattedSearchOptions.map((opt: any) => ({
+    label: opt.name,
+    value: opt.value,
+  }));
 
   const handleSearch = (value: string) => {
     if (value.trim() !== "") {
@@ -35,36 +41,35 @@ const HeaderActions = ({ navbarData, selectedLanguageData }: any) => {
       });
     }
   };
-  const flattenedData = flattenCategories(navbarData);
-  // Transform to react-select-search format
-  const formattedSearchOptions = flattenedData.map((option: any) => ({
-    name: option?.label, // Displayed in the dropdown
-    value: option?.slug, // Used for routing
-  }));
 
-  // console.log("formattedSearchOptions",formattedSearchOptions);
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (e.key === "Enter" && searchTerm.trim() !== "") {
+      console.log("Enter pressed, searching for:", searchTerm);
+      handleSearch(searchTerm);
+      e.preventDefault(); // Prevent default form submission or dropdown behavior
+    }
+  };
+  
 
   return (
     <header className="py-3 navbar_slider_header">
       <div className="container-fluid px-4">
         <div className="row align-items-center">
-
-
           {/* Search Bar */}
           <div className="col-md-8 col-12 px-4">
             <div className="position-relative">
               <div className="input-group">
-                <SelectSearch
-                  options={formattedSearchOptions}
-                  value={searchTerm}
-                  // @ts-expect-error
-                  style={{ width: "80%" }}
-                  onChange={(value: any) => {
+
+                <Select
+                  options={formattedSelectOptions}
+                  value={formattedSelectOptions.find((opt: any) => opt.value === searchTerm) || null}
+                  onChange={(selected) => {
+                    const value = selected?.value || "";
                     setSearchTerm(value);
-                    handleSearch(value);
                   }}
                   placeholder="Search..."
-                  search
+                  isSearchable
+                  onKeyDown={handleKeyDown}
                 />
                 <button
                   className="btn text-white rounded-end px-3"

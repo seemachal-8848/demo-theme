@@ -25,7 +25,9 @@ const ProductCardWithEditableQuantity = ({
   handleShowCatalogModal,
 }: any) => {
 
-  const [qty, setQty] = useState<number>(data?.min_order_qty || 1);
+  const { handleAddToWishList, handleRemoveFromWishList } = useAddToWishlist();
+  const [addToCartLoaderBtn, setAddToCartLoaderBtn] = useState<boolean>(false);
+  const router = useRouter();
 
   // Read roles from localStorage and parse them
   const userRoles = JSON.parse(localStorage.getItem('user_role') || '[]');
@@ -34,6 +36,9 @@ const ProductCardWithEditableQuantity = ({
   const isB2CSalesPerson = userRoles.includes('POS Sales Person');
 
   const type = isB2BSalesPerson ? 'B2B' : isB2CSalesPerson ? 'B2C' : null;
+  const initialQty = type === 'B2B' ? (data?.min_order_qty ?? 1) : 1;
+
+  const [qty, setQty] = useState<number>(initialQty);
 
   // Need to handle qty increase of product
   const handleQtyModificationOnButtonClick = (actionType: string) => {
@@ -52,15 +57,27 @@ const ProductCardWithEditableQuantity = ({
     }
   };
 
-
   const handleQtyModificationOnInputEdit = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { value }: any = e.target;
-    const newQty = Number(value);
-    setQty(newQty);
+    const { value } = e.target;
+    setQty(Number(value)); // Allow free editing of the input value
   };
-  const router = useRouter();
-  const { handleAddToWishList, handleRemoveFromWishList } = useAddToWishlist();
-  const [addToCartLoaderBtn, setAddToCartLoaderBtn] = useState<boolean>(false);
+
+  const handleQtyInputBlur = () => {
+    const newQty = Number(qty);
+
+    if (type === 'B2B') {
+      // For B2B users, enforce minimum quantity on blur
+      if (newQty >= (data?.min_order_qty ?? 1)) {
+        setQty(newQty);
+      } else {
+        // If input is less than min_order_qty, set to min_order_qty
+        setQty(data?.min_order_qty ?? 1);
+      }
+    } else {
+      setQty(newQty);
+    }
+  };
+
 
   let wishProducts: any;
   const handleRenderIcon = () => {
@@ -110,6 +127,7 @@ const ProductCardWithEditableQuantity = ({
           <ProductQuantityInput
             qty={qty}
             handleQtyModificationOnInputEdit={handleQtyModificationOnInputEdit}
+            handleQtyInputBlur={handleQtyInputBlur}
             handleQtyModificationOnButtonClick={handleQtyModificationOnButtonClick}
           />
           <Button

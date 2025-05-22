@@ -4,6 +4,7 @@ import { FaMinus, FaPlus } from 'react-icons/fa6';
 
 interface ProductQuantityInputPropTypes {
   qty: number | string;
+  handleQtyInputBlur: (e: any) => void;
   handleQtyModificationOnInputEdit: (e: any) => void;
   handleQtyModificationOnButtonClick: (action: string) => void;
 }
@@ -11,6 +12,7 @@ interface ProductQuantityInputPropTypes {
 const ProductQuantityInput = ({
   qty,
   handleQtyModificationOnInputEdit,
+  handleQtyInputBlur,
   handleQtyModificationOnButtonClick,
 }: ProductQuantityInputPropTypes) => {
   return (
@@ -24,6 +26,7 @@ const ProductQuantityInput = ({
           name="quantity"
           value={qty}
           onChange={(e) => handleQtyModificationOnInputEdit(e)}
+          onBlur={(e) => handleQtyInputBlur(e)}
         />
         <FaPlus className={`cursor-pointer ${styles.quantity_increase}`} onClick={() => handleQtyModificationOnButtonClick('increase')} />
       </div>

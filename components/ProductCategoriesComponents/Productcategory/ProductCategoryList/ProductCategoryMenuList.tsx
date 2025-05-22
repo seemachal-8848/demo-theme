@@ -1,23 +1,16 @@
-"use client";
-import { useSelector, useDispatch } from "react-redux";
-import {
-  resetBreadcrumb,
-  setLevel,
-  setSelectedCategory,
-  setSelectedSubCategory,
-  setSelectedSubSubCategory,
-} from "../../../../store/slices/category-breadcrumb-slice/category-breadcrumb-slice";
-import { useRouter } from "next/router";
-import { useEffect, useRef } from "react";
-import Link from "next/link";
-import style from "../../../../styles/components/sliderNavbar.module.scss";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import CategoryMenuListSkeleton from "./CategoryMenuListSkeleton";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
-// Import Swiper styles
+import { Swiper as SwiperClass } from "swiper"; // <-- ADD THIS
 import "swiper/css";
 import "swiper/css/navigation";
+import { useDispatch, useSelector } from "react-redux";
+import { useRouter } from "next/router";
+import { useEffect, useRef, useState } from "react";
+import { setLevel, setSelectedCategory, setSelectedSubCategory, setSelectedSubSubCategory } from "../../../../store/slices/category-breadcrumb-slice/category-breadcrumb-slice";
+import Link from "next/link";
+import style from "../../../../styles/components/sliderMenuList.module.scss";
 
 const ProductCategoryMenuList = ({ navbarData, isLoading }: any) => {
   const dispatch = useDispatch();
@@ -32,6 +25,9 @@ const ProductCategoryMenuList = ({ navbarData, isLoading }: any) => {
   const activeItemRef = useRef<HTMLAnchorElement | null>(null);
   const { asPath, query } = router;
 
+  // Swiper ref for controlling slides
+  const swiperRef = useRef<SwiperClass | null>(null);
+
   // Ref to track if the navigation was triggered manually
   const manualSelectRef = useRef({
     top: false,
@@ -39,11 +35,10 @@ const ProductCategoryMenuList = ({ navbarData, isLoading }: any) => {
     subsub: false,
   });
 
+  // Track the active slug for highlighting
+  const [activeSlug, setActiveSlug] = useState<string | null>(null);
+
   useEffect(() => {
-    if (!asPath.startsWith("/product-category")) {
-      dispatch(resetBreadcrumb());
-      return;
-    }
     if (!navbarData || navbarData.length === 0) return;
 
     // Skip auto sync if a manual navigation was done
@@ -58,6 +53,8 @@ const ProductCategoryMenuList = ({ navbarData, isLoading }: any) => {
 
     const slug = asPath.split("/product-category/")[1]?.split("?")[0];
     if (!slug) return;
+
+    setActiveSlug(slug);
 
     for (const category of navbarData) {
       if (category.slug === slug) {
@@ -91,6 +88,16 @@ const ProductCategoryMenuList = ({ navbarData, isLoading }: any) => {
     }
   }, [asPath, navbarData, dispatch]);
 
+  // Scroll Swiper to active category when selectedCategory changes
+  useEffect(() => {
+    if (!navbarData || navbarData.length === 0 || !selectedCategory) return;
+    if (level !== "top") return; // Only scroll for top-level categories
+    const index = navbarData.findIndex((cat: any) => cat.slug === selectedCategory.slug);
+    if (index !== -1 && swiperRef.current) {
+      swiperRef.current.slideTo(index, 300);
+    }
+  }, [selectedCategory, navbarData, level]);
+
   const navigateTo = (item: any) => {
     const baseUrl = item?.url
       ? item.url
@@ -110,6 +117,7 @@ const ProductCategoryMenuList = ({ navbarData, isLoading }: any) => {
     dispatch(setSelectedSubCategory(null));
     dispatch(setSelectedSubSubCategory(null));
     dispatch(setLevel("sub"));
+    setActiveSlug(item.slug);
     navigateTo(item);
   };
 
@@ -118,12 +126,14 @@ const ProductCategoryMenuList = ({ navbarData, isLoading }: any) => {
     dispatch(setSelectedSubCategory(subItem));
     dispatch(setSelectedSubSubCategory(null));
     dispatch(setLevel("subsub"));
+    setActiveSlug(subItem.slug);
     navigateTo(subItem);
   };
 
   const handleSubSubCategoryClick = (subSubItem: any) => {
     manualSelectRef.current.subsub = true;
     dispatch(setSelectedSubSubCategory(subSubItem));
+    setActiveSlug(subSubItem.slug);
     navigateTo(subSubItem);
   };
 
@@ -141,7 +151,7 @@ const ProductCategoryMenuList = ({ navbarData, isLoading }: any) => {
           <SwiperSlide key={index}>
             <Link
               href={`${item?.url}?${queryParams}`}
-              className={`d-flex align-items-center text-decoration-none mb-2 btn ${style.capsule_btn}`}
+              className={`d-flex align-items-center text-decoration-none mb-2 btn ${style.capsule_btn} ${activeSlug === item?.slug ? style.active_menu : ""}`}
               onClick={() => handleTopCategoryClick(item)}
             >
               {item?.label}
@@ -156,7 +166,7 @@ const ProductCategoryMenuList = ({ navbarData, isLoading }: any) => {
         <SwiperSlide key={index}>
           <Link
             href={`${subItem?.url}?${queryParams}`}
-            className={`d-flex align-items-center text-decoration-none mb-2 btn ${style.capsule_btn}`}
+            className={`d-flex align-items-center text-decoration-none mb-2 btn ${style.capsule_btn} ${activeSlug === subItem?.slug ? style.active_menu : ""}`}
             onClick={() => handleSubCategoryClick(subItem)}
           >
             {subItem?.label}
@@ -170,7 +180,7 @@ const ProductCategoryMenuList = ({ navbarData, isLoading }: any) => {
         <SwiperSlide key={index}>
           <Link
             href={`${subSubItem?.url}?${queryParams}`}
-            className={`d-flex align-items-center text-decoration-none mb-2 btn ${style.capsule_btn}`}
+            className={`d-flex align-items-center text-decoration-none mb-2 btn ${style.capsule_btn} ${activeSlug === subSubItem?.slug ? style.active_menu : ""}`}
             onClick={() => handleSubSubCategoryClick(subSubItem)}
           >
             {subSubItem?.label}
@@ -193,7 +203,7 @@ const ProductCategoryMenuList = ({ navbarData, isLoading }: any) => {
   return (
     <div className="w-100">
       <div className="container position-relative py-2 px-0 product_category_container"
-        style={{ width: "80%", marginLeft: "70px",}}>
+        style={{ width: "80%", marginLeft: "70px", }}>
         <Swiper
           modules={[Navigation]}
           spaceBetween={10}
@@ -218,6 +228,7 @@ const ProductCategoryMenuList = ({ navbarData, isLoading }: any) => {
             },
           }}
           className="mySwiper"
+          onSwiper={(swiper) => { swiperRef.current = swiper; }}
         >
           {renderItems()}
 
@@ -231,7 +242,6 @@ const ProductCategoryMenuList = ({ navbarData, isLoading }: any) => {
         </Swiper>
       </div>
     </div>
-
   );
 };
 

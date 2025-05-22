@@ -3,6 +3,7 @@ const DefaultLayout = dynamic(() => import('./DefaultLayout'));
 const CollapsibleLayout = dynamic(() => import('./CollapsibleLayout'));
 const TopFiltersLayout = dynamic(() => import('./TopFiltersLayout'));
 const FixedFiltersLayout = dynamic(() => import('./FixedFiltersLayout'));
+const DualFiltersLayout = dynamic(() => import('./DualFiltersLayout'));
 
 const LayoutRenderer = (props: any) => {
   const renderLayouts = () => {
@@ -21,6 +22,14 @@ const LayoutRenderer = (props: any) => {
         return <TopFiltersLayout />;
       case 'Fixed Filters Layout':
         return <FixedFiltersLayout />;
+      case 'Dual Filters Layout':
+        return (
+          <DualFiltersLayout
+            filterComponent={props.filterComponentInLayout}
+            CardsComponent={props.productCardsInLayout}
+            productsGridData={props.productsGridProps}
+          />
+        );
     }
   };
   return <>{renderLayouts()}</>;

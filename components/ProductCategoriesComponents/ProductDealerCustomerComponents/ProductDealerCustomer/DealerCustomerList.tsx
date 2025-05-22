@@ -6,6 +6,7 @@ import MechanicSelect from '../../../MechanicListComponent/MechanicSelect';
 
 const DealerCustomerList = () => {
   const [selectedOption, setSelectedOption] = useState<any>(null);
+  const [selectedMechanicData, setSelectedMechanicData] = useState<any>({});
   const router = useRouter();
   // Read roles from localStorage and parse them
   const userRoles = JSON.parse(localStorage.getItem('user_role') || '[]');
@@ -27,10 +28,20 @@ const DealerCustomerList = () => {
 
     if (option) {
       // Add or update email in the URL
-      currentQuery.email = option.email;
+      currentQuery.email = option?.email;
+      // Set mechanic data in the format expected by react-select
+      if (option?.mechanic) {
+        setSelectedMechanicData({
+          value: option.mechanic,
+          label: option.mechanic
+        });
+      } else {
+        setSelectedMechanicData({});
+      }
     } else {
       // Remove email from the URL
       delete currentQuery.email;
+      setSelectedMechanicData({});
     }
 
     router.push(
@@ -56,6 +67,13 @@ const DealerCustomerList = () => {
           value: matchedUser.email,
           label: matchedUser.customer_name
         });
+        // Also set the mechanic if it exists
+        if (matchedUser.mechanic) {
+          setSelectedMechanicData({
+            value: matchedUser.mechanic,
+            label: matchedUser.mechanic
+          });
+        }
       }
     }
   }, [router.query.email, websiteUserList]);
@@ -63,7 +81,7 @@ const DealerCustomerList = () => {
   if (isLoading) {
     return (
       <>
-       <p>...Loading</p>
+        <p>...Loading</p>
       </>
     );
   }
@@ -99,7 +117,6 @@ const DealerCustomerList = () => {
           )}
         />
       </div>
-
       {/* Loyalty or Credit Info */}
       {selectedOption && (
         <div className="mb-2">
@@ -113,11 +130,12 @@ const DealerCustomerList = () => {
           )}
         </div>
       )}
-
       {/* Mechanic Dropdown */}
       {isB2CSalesPerson && (
         <MechanicSelect
           selectedOption={selectedOption}
+          setSelectedMechanicData={setSelectedMechanicData}
+          selectedMechanicData={selectedMechanicData}
         />
       )}
     </>

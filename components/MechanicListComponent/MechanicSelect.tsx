@@ -1,11 +1,9 @@
-import { useEffect, useState } from 'react';
 import Select from 'react-select';
 import { toast } from 'react-toastify';
 import useMechanicList from '../../hooks/WebsiteUserList/useMechanicList';
 import useAddMechanic from '../../hooks/WebsiteUserList/useAddMechanic';
 
-const MechanicSelect = ({ selectedOption }: { selectedOption: any }) => {
-  const [selectedMechanicData, setSelectedMechanicData] = useState<any>(null);
+const MechanicSelect = ({ selectedOption, setSelectedMechanicData, selectedMechanicData }: any) => {
   const { mechanicList, isLoading } = useMechanicList();
   const { handleAddMechanic, isLoading: isMechanicLoading } = useAddMechanic();
 

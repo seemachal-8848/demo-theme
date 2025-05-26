@@ -12,36 +12,36 @@ const ProfileMaster = () => {
   const { selectedLanguageData }: any = useSelector(SelectedFilterLangDataFromStore);
 
   const arrForPersonalDetails = [
-    { label: selectedLanguageData?.user_name || '', value: userData?.profile_details?.customer_name || '' },
-    { label: selectedLanguageData?.company_name || '', value: userData?.profile_details?.customer_name || '' },
-    { label: selectedLanguageData?.mobile_number || '', value: userData?.profile_details?.contact_no || '' },
-    { label: selectedLanguageData?.email || '', value: userData?.profile_details?.email || '' },
+    { label: selectedLanguageData?.user_name || 'User Name', value: userData?.profile_details?.customer_name || '' },
+    // { label: selectedLanguageData?.customer_name || '', value: userData?.profile_details?.customer_name || '' },
+    { label: selectedLanguageData?.mobile_number || 'Mobile No', value: userData?.profile_details?.contact_no || '' },
+    { label: selectedLanguageData?.email || 'Email', value: userData?.profile_details?.email || '' },
   ];
   const arrForAddressDetails = [
     {
-      label: selectedLanguageData?.shipping_addresses || '',
+      label: selectedLanguageData?.shipping_addresses || 'Shipping Addresses',
       value: [
-        { label: selectedLanguageData?.name || '', value: userData?.shipping_address?.name || '' },
-        { label: selectedLanguageData?.email || '', value: userData?.shipping_address?.user_id?.email || '' },
-        { label: selectedLanguageData?.mobile_number, value: userData?.shipping_address?.user_id?.mobile_no || '' },
-        { label: selectedLanguageData?.address, value: userData?.shipping_address?.full_address } || '',
-        { label: selectedLanguageData?.postal_code, value: userData?.shipping_address?.postal_code || '' },
-        { label: selectedLanguageData?.state, value: userData?.shipping_address?.state || '' },
-        { label: selectedLanguageData?.city, value: userData?.shipping_address?.city || '' },
-        { label: selectedLanguageData?.country, value: userData?.shipping_address?.country || '' },
+        { label: selectedLanguageData?.name || 'Name', value: userData?.shipping_address?.name || '' },
+        { label: selectedLanguageData?.email || 'Email', value: userData?.shipping_address?.user_id?.email || '' },
+        { label: selectedLanguageData?.mobile_number || 'Mobile No', value: userData?.shipping_address?.user_id?.mobile_no || '' },
+        { label: selectedLanguageData?.address || 'Address', value: userData?.shipping_address?.full_address || '' },
+        { label: selectedLanguageData?.postal_code || 'Postal Code', value: userData?.shipping_address?.postal_code || '' },
+        { label: selectedLanguageData?.state || 'State', value: userData?.shipping_address?.state || '' },
+        { label: selectedLanguageData?.city || 'City', value: userData?.shipping_address?.city || '' },
+        { label: selectedLanguageData?.country || 'Country', value: userData?.shipping_address?.country || '' },
       ],
     },
     {
-      label: selectedLanguageData?.billing_addresses || '',
+      label: selectedLanguageData?.billing_addresses || 'Billing Addresses',
       value: [
-        { label: selectedLanguageData?.name, value: userData?.billing_address?.name || '' },
-        { label: selectedLanguageData?.email, value: userData?.billing_address?.user_id?.email || '' },
-        { label: selectedLanguageData?.mobile_number, value: userData?.billing_address?.user_id?.mobile_no || '' },
-        { label: selectedLanguageData?.address, value: userData?.billing_address?.full_address || '' },
-        { label: selectedLanguageData?.postal_code, value: userData?.billing_address?.postal_code || '' },
-        { label: selectedLanguageData?.state, value: userData?.billing_address?.state || '' },
-        { label: selectedLanguageData?.city, value: userData?.billing_address?.city || '' },
-        { label: selectedLanguageData?.country, value: userData?.billing_address?.country || '' },
+        { label: selectedLanguageData?.name || 'Name', value: userData?.billing_address?.name || '' },
+        { label: selectedLanguageData?.email || 'Email', value: userData?.billing_address?.user_id?.email || '' },
+        { label: selectedLanguageData?.mobile_number || 'Mobile No', value: userData?.billing_address?.user_id?.mobile_no || '' },
+        { label: selectedLanguageData?.address || 'Address', value: userData?.billing_address?.full_address || '' },
+        { label: selectedLanguageData?.postal_code || 'Postal Code', value: userData?.billing_address?.postal_code || '' },
+        { label: selectedLanguageData?.state || 'State', value: userData?.billing_address?.state || '' },
+        { label: selectedLanguageData?.city || 'City', value: userData?.billing_address?.city || '' },
+        { label: selectedLanguageData?.country || 'Country', value: userData?.billing_address?.country || '' },
       ],
     },
   ];

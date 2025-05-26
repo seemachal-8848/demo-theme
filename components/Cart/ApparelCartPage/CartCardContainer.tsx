@@ -1,6 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import CartCard from '../../../cards/CartCard';
 import { toast } from 'react-toastify';
+import { getUserType } from '../../../utils/get-user-role';
 
 interface CartCardContainerPropTypes {
   cartListingItems: any;
@@ -11,13 +12,8 @@ interface CartCardContainerPropTypes {
 
 const CartCardContainer = ({ cartListingItems, RemoveItemCartAPIFunc, setCartListingItems, addToCartItem }: CartCardContainerPropTypes) => {
   const allOrders = cartListingItems?.categories?.flatMap((category: any) => category?.orders);
-  // Read roles from localStorage and parse them
-  const userRoles = JSON.parse(localStorage.getItem('user_role') || '[]');
-
-  const isB2BSalesPerson = userRoles.includes('Sales Person');
-  const isB2CSalesPerson = userRoles.includes('POS Sales Person');
-
-  const type = isB2BSalesPerson ? 'B2B' : isB2CSalesPerson ? 'B2C' : null;
+  // get roles
+  const userType = getUserType();
 
   const handleUpdateCart = useCallback((updatedList: any) => {
     const params = {
@@ -59,7 +55,7 @@ const CartCardContainer = ({ cartListingItems, RemoveItemCartAPIFunc, setCartLis
         ...category,
         orders: category.orders.map((item: any) => {
           if (item.item_code === item_code) {
-            if (type === 'B2B' && newQty < item?.min_order_qty) {
+            if (userType === 'B2B' && newQty < item?.min_order_qty) {
               toast.warning(`Order quantity cannot be less than minimum order quantity ${item?.min_order_qty}`);
               isValid = false;
               return item;
@@ -105,3 +101,4 @@ const CartCardContainer = ({ cartListingItems, RemoveItemCartAPIFunc, setCartLis
 };
 
 export default CartCardContainer;
+

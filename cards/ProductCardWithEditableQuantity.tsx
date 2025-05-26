@@ -13,6 +13,7 @@ import { FaCheckCircle } from 'react-icons/fa';
 import { imageLoader } from '../utils/image_loader';
 import ProductQuantityInput from '../components/ProductCategoriesComponents/ProductListActionButtons/ProductQuantityInput';
 import StarRating from '../components/ProductPageComponents/StarRating';
+import { getUserType } from '../utils/get-user-role';
 
 const ProductCardWithEditableQuantity = ({
   data,
@@ -28,15 +29,9 @@ const ProductCardWithEditableQuantity = ({
   const { handleAddToWishList, handleRemoveFromWishList } = useAddToWishlist();
   const [addToCartLoaderBtn, setAddToCartLoaderBtn] = useState<boolean>(false);
   const router = useRouter();
-
-  // Read roles from localStorage and parse them
-  const userRoles = JSON.parse(localStorage.getItem('user_role') || '[]');
-
-  const isB2BSalesPerson = userRoles.includes('Sales Person');
-  const isB2CSalesPerson = userRoles.includes('POS Sales Person');
-
-  const type = isB2BSalesPerson ? 'B2B' : isB2CSalesPerson ? 'B2C' : null;
-  const initialQty = type === 'B2B' ? (data?.min_order_qty ?? 1) : 1;
+  // get roles
+  const userType = getUserType();
+  const initialQty = userType === 'B2B' ? (data?.min_order_qty ?? 1) : 1;
 
   const [qty, setQty] = useState<number>(initialQty);
 
@@ -45,7 +40,7 @@ const ProductCardWithEditableQuantity = ({
     if (actionType === 'increase') {
       setQty(qty + 1);
     } else if (actionType === 'decrease') {
-      if (type === 'B2B') {
+      if (userType === 'B2B') {
         if (qty > (data?.min_order_qty ?? 1)) {
           setQty(qty - 1);
         }
@@ -65,7 +60,7 @@ const ProductCardWithEditableQuantity = ({
   const handleQtyInputBlur = () => {
     const newQty = Number(qty);
 
-    if (type === 'B2B') {
+    if (userType === 'B2B') {
       // For B2B users, enforce minimum quantity on blur
       if (newQty >= (data?.min_order_qty ?? 1)) {
         setQty(newQty);
@@ -250,7 +245,7 @@ const ProductCardWithEditableQuantity = ({
               </Card.Text>
             </div>
             <div className="mb-2" style={{ fontSize: '15px' }}>
-              {isB2BSalesPerson ? (
+              {userType === 'B2B' ? (
                 <div className='d-flex justify-content-between wrap gap-3 mt-1'>
                   {data?.monthly_target_qty && <div><strong>MTD Qty</strong> ₹{data?.monthly_target_qty}</div>}
                   {data?.taget_qty && <div><strong>Target Qty</strong> ₹{data?.taget_qty}</div>}

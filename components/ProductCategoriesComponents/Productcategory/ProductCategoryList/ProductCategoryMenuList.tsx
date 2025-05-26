@@ -246,3 +246,6 @@ const ProductCategoryMenuList = ({ navbarData, isLoading }: any) => {
 };
 
 export default ProductCategoryMenuList;
+
+
+
